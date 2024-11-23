@@ -19,13 +19,23 @@ def index():
 # Route for individual posts
 
 
-@app.route('/posts/<post_name>.html')
+@app.route('/<path:post_name>.html')
 def post(post_name):
-    post_path = f'posts/{post_name}.html'
+    # The `post_name` will include the folder path if it's inside a folder like 'hello'
+    post_path = f'{post_name}.html'  # Check the root directory first
+
+    # If the post doesn't exist in the root, check the posts directory
+    if not os.path.exists(post_path):
+        post_path = f'posts/{post_name}.html'  # Check posts folder
+
+    # If the post is inside a nested folder like posts/hello/
+    if not os.path.exists(post_path):
+        post_path = f'posts/{post_name}.html'
+
     try:
         with open(post_path, 'r') as file:
             content = file.read()
-        return render_template('post.html', title=post_name.capitalize(), content=content)
+        return render_template('post.html', title=post_name.capitalize(), content=content, post_name=post_name)
     except FileNotFoundError:
         abort(404)
 
