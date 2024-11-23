@@ -3,14 +3,14 @@ name: Deploy Flask to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Deploy when changes are pushed to the main branch
 
 permissions:
-  contents: write  # Needed for deploying to GitHub Pages
-  pages: write     # Needed to push to the gh-pages branch
+  contents: write  # Grant permission to write to the repository
+  pages: write     # Grant permission to GitHub Pages
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,12 +33,18 @@ jobs:
     # Step 4: Run flask freeze
     - name: Freeze Flask App
       run: |
-        python freeze.py  # Run freeze.py to generate static files
+        python freeze.py  # Generate static files into the './build' directory
 
-    # Step 5: Deploy to GitHub Pages
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Upload artifact for Pages
+      uses: actions/upload-pages-artifact@v1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build  # Specify the 'build' directory for deployment
-        publish_branch: gh-pages  # Push the contents of the build folder to the 'gh-pages' branch
+        path: ./build  # Specify the folder containing the static files
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write  # Grant permissions to deploy to GitHub Pages
+    steps:
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v2
