@@ -40,5 +40,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./  # Make sure static files are published from the root directory
-        publish_branch: gh-pages  # Specify the `gh-pages` branch for deployment
+        publish_dir: ./build  # Specify the 'build' directory for deployment
+        publish_branch: gh-pages  # Push the contents of the build folder to the 'gh-pages' branch
