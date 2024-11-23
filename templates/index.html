@@ -5,6 +5,10 @@
 {% block content %}
 <h2>Jerry's blog</h2>
 <p id="dev-cal-2">This is the content specific to the homepage.</p>
-<p id="dev-cal-2">This is the content specific to the homepage.</p>
+<ul>
+    {% for post in posts %}
+    <li><a href="{{ url_for('post', post_name=post) }}">{{ post | capitalize }}</a></li>
+    {% endfor %}
+</ul>
 <p id="dev-cal-2">This is the content specific to the homepage.</p>
 {% endblock %}

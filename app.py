@@ -1,43 +1,32 @@
+from flask import Flask, render_template, abort
 import os
-from flask import Flask, render_template
-from flask_frozen import Freezer
-from markupsafe import Markup
 
 app = Flask(__name__)
-freezer = Freezer(app)
+
+# Base route for the homepage
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    post_files = os.listdir('posts/')
+    posts = [post.replace('.html', '')
+             for post in post_files if post.endswith('.html')]
+    print(f"Posts: {posts}")  # Debugging line
+    return render_template('index.html', posts=posts)
+
+# Route for individual posts
 
 
-@app.route("/blog")
-def blog():
-    posts = []
-    for filename in os.listdir("posts"):
-        if filename.endswith(".html"):
-            with open(os.path.join("posts", filename)) as f:
-                content = f.read()
-                title = os.path.splitext(filename)[0].replace("-", " ").title()
-                posts.append({"title": title, "content": Markup(content)})
-    return render_template("blog.html", posts=posts)
+@app.route('/posts/<post_name>')
+def post(post_name):
+    post_path = f'posts/{post_name}.html'
+    try:
+        with open(post_path, 'r') as file:
+            content = file.read()
+        return render_template('post.html', title=post_name.capitalize(), content=content)
+    except FileNotFoundError:
+        abort(404)
 
 
-@app.route("/blog/<post_slug>.html")
-def post(post_slug):
-    post_file = f"posts/{post_slug}.html"
-    if os.path.exists(post_file):
-        with open(post_file) as f:
-            content = Markup(f.read())
-            title = post_slug.replace("-", " ").title()
-            return render_template("post.html", title=title, content=content)
-    else:
-        return "Post not found", 404
-
-
-if __name__ == '__main__':
-    freezer.freeze()
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)

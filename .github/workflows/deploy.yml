@@ -33,7 +33,7 @@ jobs:
     # Step 4: Run flask freeze
     - name: Freeze Flask App
       run: |
-        python freeze.py  # Generate static files in the './build' directory
+        python app.py  # Generate static files in the './build' directory
 
     # Step 5: Deploy GitHub Pages
     - name: Upload artifact for Pages
