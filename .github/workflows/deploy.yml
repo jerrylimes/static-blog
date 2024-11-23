@@ -1,24 +1,24 @@
-name: Deploy Flask App to GitHub Pages
+name: Deploy Frozen Flask to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the main branch
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Set up Python environment
+    # Step 1: Checkout the repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Python
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: 3.9
-
-    # Step 2: Checkout the code
-    - name: Checkout code
-      uses: actions/checkout@v3
 
     # Step 3: Install dependencies
     - name: Install dependencies
@@ -26,16 +26,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Step 4: Run Flask to Generate Static Content
-    - name: Serve Flask App
+    # Step 4: Freeze the Flask app
+    - name: Freeze Flask App
       env:
         FLASK_APP: app.py
-      run: |
-        flask run --host=0.0.0.0 --port=5000  # Flask serves the site
+      run: flask freeze
 
     # Step 5: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .  # Publish the current repo structure
+        publish_dir: ./build  # Replace with output folder from freezing
