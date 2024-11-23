@@ -2,6 +2,7 @@ from flask import Flask, render_template, abort
 import os
 
 app = Flask(__name__)
+app.config['FREEZER_RELATIVE_URLS'] = True
 
 # Base route for the homepage
 
@@ -17,7 +18,7 @@ def index():
 # Route for individual posts
 
 
-@app.route('/posts/<post_name>')
+@app.route('/posts/<post_name>.html')
 def post(post_name):
     post_path = f'posts/{post_name}.html'
     try:
@@ -28,5 +29,9 @@ def post(post_name):
         abort(404)
 
 
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+from flask_frozen import Freezer
+freezer = Freezer(app)
+
+
+if __name__ == '__main__':
+    freezer.freeze()
