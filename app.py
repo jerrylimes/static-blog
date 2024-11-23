@@ -1,3 +1,4 @@
+from flask_frozen import Freezer
 from flask import Flask, render_template, abort
 import os
 
@@ -29,7 +30,6 @@ def post(post_name):
         abort(404)
 
 
-from flask_frozen import Freezer
 freezer = Freezer(app)
 
 

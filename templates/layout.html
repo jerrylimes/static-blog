@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charter-webfont@4/charter.min.css" />
 </head>
 
 <body>
@@ -42,7 +43,11 @@
         <div id="attic-items">
             <div class="b-item-2">publications</div>
             <div class="b-item">
-                <a href="javascript:;">None</a>
+                <ul>
+                    {% for post in posts %}
+                    <li><a href="{{ url_for('post', post_name=post) }}">{{ post | capitalize }}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </header>
@@ -56,9 +61,30 @@
     <main>
         {% block content %}{% endblock %}
     </main>
-    <footer>
-        <p>&copy; 2024 My Frozen Flask App</p>
-    </footer>
+    <div id="copyright-info">
+        <p class="copyright-info">
+            想帮忙？有想法或建议？欢迎给
+            <a href="mailto:jerrylovesapple@icloud.com">jerrylovesapple@icloud.com</a>
+            发一封邮件。<br>
+        </p>
+        <p class="copyright-info">
+            版权所有 © aluminum.studio
+            <a id="my-page" href="http://jerrylovescheese.github.io/web/pages/aluminum_studio.html">
+                江源工作室 <i class="fas fa-arrow-right"></i>
+            </a>
+        </p>
+        <p class="copyright-info">
+            <a href="javascript:;" onclick="alert('Currently no items in test. Stay tuned!')">
+                <i class="fas fa-flask"></i>&emsp13;
+                实验室
+            </a>
+            &emsp;
+            <a href="https://blog.jerryly.top/2024/04/04/legal-statement.html">
+                <i class="fa-solid fa-scale-balanced"></i>&emsp13;
+                法律声明
+            </a>
+        </p>
+    </div>
 </body>
 
 </html>
