@@ -1,4 +1,4 @@
-name: Deploy Frozen Flask to GitHub Pages
+name: Deploy Flask to GitHub Pages
 
 on:
   push:
@@ -26,15 +26,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    # Step 4: Freeze the Flask app
+    # Step 4: Run flask freeze
     - name: Freeze Flask App
-      env:
-        FLASK_APP: app.py
-      run: flask freeze
+      run: |
+        python freeze.py  # Run freeze.py to generate static files
 
     # Step 5: Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build  # Replace with output folder from freezing
+        publish_dir: ./  # Publish from the root directory (where freeze.py generates files)
