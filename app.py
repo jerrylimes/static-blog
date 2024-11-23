@@ -24,7 +24,7 @@ def blog():
     return render_template("blog.html", posts=posts)
 
 
-@app.route("/blog/<post_slug>")
+@app.route("/blog/<post_slug>.html")
 def post(post_slug):
     post_file = f"posts/{post_slug}.html"
     if os.path.exists(post_file):
