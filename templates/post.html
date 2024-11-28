@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
 
 {% block title %}
-{{ title }} - My Blog
+{{ title }}
 {% endblock %}
 
 {% block content %}
-<a id="dev-cal-2" href="{{ url_for('index') }}"><i class="fas fa-arrow-left"></i>&emsp;Back to Blog</a>
-<h1>{{ title }}</h1>
+<div class="post-banner">
+    <a id="dev-cal-2" href="{{ url_for('index') }}"><i class="fas fa-arrow-left"></i>&emsp;Back to Blog</a>
+    <h1>{{ title }}</h1>
+</div>
 
 <div class="post-content">
     {{ content | safe }}
