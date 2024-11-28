@@ -5,14 +5,18 @@
 {% block content %}
 <h2>Jerry's blog 李江源的博客</h2>
 <p id="dev-cal-2">
-    很神奇的是相比于主页，我的博客虽然更新很不频繁但却是我改动最大的代码仓库——很多次都在各种服务器之间摇摆，思考怎么样才能以最简朴的方式呈现。
+    很神奇的是相比于<a href="https://jerryly.top">主站</a>，我的博客虽然更新很不频繁但却是我改动最大的代码仓库——很多次都在各种服务器之间摇摆，思考怎么样才能以最简朴的方式呈现。
     在删了又改，改了又删的探索中，我好像开始明白——静态网页不一定是静态的。不过那是后话了——现在，欢迎你来到我的博客。
 </p>
-<ul>
+<h3>日志位于左侧边栏。</h3>
+<!-- <ul>
     {% for post in posts %}
     <li id="dev-cal-2"><a href="{{ url_for('post', post_name=post) }}">{{ post | capitalize }}</a></li>
     {% endfor %}
-</ul>
+</ul> -->
+<a id="dev-cal-2" href="{{ url_for('post', post_name=20240404) }}">
+    <i class="fa-solid fa-scale-balanced"></i>&emsp;<b>Legal statement</b>
+</a>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 {% endblock %}
