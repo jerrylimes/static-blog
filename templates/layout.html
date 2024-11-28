@@ -28,6 +28,7 @@
     </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pygments.css') }}">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charter-webfont@4/charter.min.css" />
@@ -109,6 +110,7 @@
             <li><a href="{{ url_for('index') }}">主页</a></li>
             <li><a href="{{ url_for('post', post_name=20240604) }}">美国面签全过程</a></li>
             <li><a href="{{ url_for('post', post_name=20241004) }}">杂谈</a></li>
+            <li><a href="{{ url_for('render_markdown', filename='example') }}">笔记</a></li>
         </ul>
     </nav>
     <div id="back-to-top">

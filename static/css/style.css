@@ -526,6 +526,15 @@ main .post-banner {
     padding: 0;
 }
 
+.codehilite {
+    background-color: black;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 15px;
+    border: solid 1px #333;
+    margin-bottom: 5px;
+}
+
 /* media queries */
 
 @media (prefers-color-scheme: dark) {
@@ -564,6 +573,11 @@ main .post-banner {
 
     #b-close {
         color: #eee;
+    }
+
+    main .post-banner {
+        background-color: black !important;
+        border-bottom-color: #333;
     }
 
     nav {
