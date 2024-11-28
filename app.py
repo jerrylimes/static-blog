@@ -42,7 +42,7 @@ def post(post_name):
         abort(404)
 
 
-@app.route('/markdown/<path:filename>.md')
+@app.route('/markdown/<path:filename>.html')
 def render_markdown(filename):
     # Define the Markdown file path
     # Assuming a "markdown" folder in the root directory
