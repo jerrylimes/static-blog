@@ -511,6 +511,10 @@ main .post-banner {
     border-bottom: solid 1px #eee;
 }
 
+.post-banner #title {
+    transition: all 0.2s;
+}
+
 .b-item>ul {
     margin: 0;
     padding: 0;
