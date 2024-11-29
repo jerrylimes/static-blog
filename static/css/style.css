@@ -500,7 +500,7 @@ footer {
 main {
     margin-top: 20px;
     width: calc(80% - 40px);
-    height: 100vh;
+    max-height: fit-content;
     margin-left: calc(20% + 20px);
 }
 
