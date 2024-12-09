@@ -18,6 +18,11 @@
                 $("#content-unit").toggleClass("active");
             });
         });
+        $(function () {
+            $("#list-of-contents").click(function () {
+                $("#list").toggleClass("active");
+            });
+        });
         // Ensure the DOM is fully loaded before running the script
         $(document).ready(function () {
             // Get the title of the document
@@ -105,8 +110,8 @@
         </div>
     </header>
     <nav>
-        <p><b>contents</b></p>
-        <ul>
+        <p id="list-of-contents"><i class="fa-solid fa-rectangle-list"></i>&emsp;<b>contents</b></p>
+        <ul id="list">
             <li><a href="{{ url_for('index') }}">主页</a></li>
             <li><a href="{{ url_for('post', post_name=20240604) }}">美国面签全过程</a></li>
             <li><a href="{{ url_for('post', post_name=20241004) }}">杂谈</a></li>
