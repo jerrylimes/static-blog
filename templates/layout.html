@@ -7,28 +7,60 @@
     <title>{% block title %}My Frozen Flask App{% endblock %}</title>
     <script src="{{ url_for('static', filename='js/jquery-3.7.1.js') }}"></script>
     <script>
-        $(function () {
-            $("#b-close").click(function () {
-                $("#attic").toggleClass("collapse");
-            });
+        $(document).ready(function () {
+            // Get the current hour
+            const currentHour = new Date().getHours();
+
+            // Determine the appropriate greeting
+            let greetingText = '';
+            if (currentHour >= 5 && currentHour < 12) {
+                greetingText = 'Good morning';
+            } else if (currentHour >= 12 && currentHour < 18) {
+                greetingText = 'Good afternoon';
+            } else {
+                greetingText = 'Good evening';
+            }
+
+            // Set the text content of the span element
+            $('#greeting-sentence').text(greetingText);
         });
-        $(function () {
-            $("#header-collapse-button").click(function () {
-                $("#header-unit").toggleClass("active");
-                $("#content-unit").toggleClass("active");
-            });
-        });
-        $(function () {
-            $("#list-of-contents").click(function () {
-                $("#list").toggleClass("active");
-            });
-        });
+
         // Ensure the DOM is fully loaded before running the script
         $(document).ready(function () {
             // Get the title of the document
             var title = $(document).attr("title");
             // Display the title inside an element with id 'titleDisplay'
             $("#titleDisplay").text(title);
+        });
+
+        $(function () {
+            $("#top-link-1").click(function () {
+                $("#aerial").toggleClass("activeMap");
+                $("#top-link-1").toggleClass("active");
+                $("#map").toggleClass("active");
+            });
+        });
+
+        $(function () {
+            $("#top-link-2").click(function () {
+                $("#aerial").toggleClass("activeMe");
+                $("#top-link-2").toggleClass("active");
+                $("#me").toggleClass("active");
+            });
+        });
+
+        $(function () {
+            $("#top-link-4").click(function () {
+                $("#aerial").toggleClass("activeSearch");
+                $("#top-link-4").toggleClass("active");
+                $("#search-bar").toggleClass("active");
+            });
+        });
+
+        $(function () {
+            $("#list-of-contents").click(function () {
+                $("#list").toggleClass("active");
+            });
         });
     </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -40,72 +72,130 @@
 </head>
 
 <body>
-    <header id="attic">
-        <div id="b-close"><i class="fas fa-arrow-right"></i></div>
-        <a href="https://jerryly.top">
-            <div class="b-item-0"></div>
-        </a>
-        <div class="b-item-1"><span id="titleDisplay"></span></div>
-        <div id="attic-items">
+    <header id="aerial">
+        <div id="greet">
+            <span id="greeting-sentence"></span>, you're watching
+            <br><b><span id="titleDisplay"></span></b></span>
+        </div>
+        <div id="bar">
+            <a href="https://jerryly.top">
+                <div id="logo"></div>
+            </a>
+            <div id="top-links">
+                <div id="top-link-1" class="top-link">
+                    <i class="fa-regular fa-map"></i>
+                </div>
+                <div id="top-link-2" class="top-link">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <!-- <div id="top-link-4" class="top-link">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div> -->
+            </div>
+        </div>
+        <div id="map">
             <div class="b-item-2">things I love</div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/apple.html">Apple</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/friends.html">Friends</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/music.html">Music</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/taylorswift.html">Swiftie</a>
-            </div>
+            <a href="https://jerryly.top/pages/apple.html">
+                <div class="b-item">
+                    Apple
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/friends.html">
+                <div class="b-item">
+                    Friends
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/music.html">
+                <div class="b-item">
+                    Music
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/taylorswift.html">
+                <div class="b-item">
+                    Swiftie
+                </div>
+            </a>
             <div class="b-item-2">festivity</div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/christmas.html">Christmas</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/homemade_giftcard.html">Homemade Giftcard</a>
-            </div>
+            <a href="https://jerryly.top/pages/christmas.html">
+                <div class="b-item">
+                    Christmas
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/homemade_giftcard.html">
+                <div class="b-item">
+                    Homemade Giftcard
+                </div>
+            </a>
             <div class="b-item-2">other stuff</div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/aluminum_studio.html">About</a>
-            </div>
-            <div class="b-item">
-                <a href="https://blog.jerryly.top">
+            <a href="https://jerryly.top/pages/aluminum_studio.html">
+                <div class="b-item">
+                    About
+                </div>
+            </a>
+            <a href="https://blog.jerryly.top">
+                <div class="b-item">
                     Blog&emsp13;&emsp13;
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/classical_ch_sh.html">
+                <div class="b-item">
+                    Classical Chinese for Senior High
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/classical_ch.html">
+                <div class="b-item">
+                    Classical Chinese for Junior High
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/clock.html">
+                <div class="b-item">
+                    Clock
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/contact.html">
+                <div class="b-item">
+                    Contact
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/develop.html">
+                <div class="b-item">
+                    Develop
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/flashback.html">
+                <div class="b-item">
+                    Rainbow Room
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/gallery.html">
+                <div class="b-item">
+                    Gallery
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/noticeboard.html">
+                <div class="b-item">
+                    Noticeboard
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/search.html">
+                <div class="b-item">
+                    Search (beta)
+                </div>
+            </a>
+            <a href="https://jerryly.top/pages/survey.html">
+                <div class="b-item">
+                    Survey
+                </div>
+            </a>
+        </div>
+        <div id="me">
+            李江源 / Jerry Li
+            <div id="me-smaller">
+                A student at University of Virginia who loves CS but is being tortured by math
             </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/classical_ch_sh.html">Classical Chinese for Senior High</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/classical_ch.html">Classical Chinese for Junior High</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/clock.html">Clock</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/contact.html">Contact</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/develop.html">Develop</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/flashback.html">Rainbow Room</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/gallery.html">Gallery</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/noticeboard.html">Noticeboard</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/search.html">Search (deprecated)</a>
-            </div>
-            <div class="b-item">
-                <a href="https://jerryly.top/pages/survey.html">Survey</a>
+            <div id="me-smaller-2">
+                learn more at <a href="https://jerryly.top/pages/aluminum_studio.html">my about page</a>
             </div>
         </div>
     </header>
