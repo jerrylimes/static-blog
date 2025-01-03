@@ -63,6 +63,7 @@
             });
         });
     </script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pygments.css') }}">
@@ -206,6 +207,8 @@
             <li><a href="{{ url_for('post', post_name=20240604) }}">美国面签全过程</a></li>
             <li><a href="{{ url_for('post', post_name=20241004) }}">杂谈</a></li>
             <li><a href="{{ url_for('post', post_name=20241128) }}">感恩节</a></li>
+            <li><a href="{{ url_for('post', post_name=20250103) }}">二〇二四年度总结</a></li>
+            <li><a href="{{ url_for('post', post_name=20241123) }}">二〇二四年度最佳</a></li>
             <li><a href="{{ url_for('render_markdown', filename='example') }}">笔记</a></li>
         </ul>
     </nav>
