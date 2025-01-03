@@ -34,32 +34,10 @@
         });
 
         $(function () {
-            $("#top-link-1").click(function () {
-                $("#aerial").toggleClass("activeMap");
-                $("#top-link-1").toggleClass("active");
+            $("#bar-separator-1").click(function () {
+                $("#aerobe").toggleClass("active");
                 $("#map").toggleClass("active");
-            });
-        });
-
-        $(function () {
-            $("#top-link-2").click(function () {
-                $("#aerial").toggleClass("activeMe");
-                $("#top-link-2").toggleClass("active");
-                $("#me").toggleClass("active");
-            });
-        });
-
-        $(function () {
-            $("#top-link-4").click(function () {
-                $("#aerial").toggleClass("activeSearch");
-                $("#top-link-4").toggleClass("active");
-                $("#search-bar").toggleClass("active");
-            });
-        });
-
-        $(function () {
-            $("#list-of-contents").click(function () {
-                $("#list").toggleClass("active");
+                $("#map-text").toggleClass("active");
             });
         });
     </script>
@@ -73,130 +51,88 @@
 </head>
 
 <body>
-    <header id="aerial">
-        <div id="greet">
-            <span id="greeting-sentence"></span>, you're watching
-            <br><b><span id="titleDisplay"></span></b></span>
-        </div>
-        <div id="bar">
+    <header id="aerobe">
+        <div id="top-bar">
+            <div id="hello"><span id="greeting-sentence"></span></div>
             <a href="https://jerryly.top">
-                <div id="logo"></div>
+                <div id="home"></div>
             </a>
-            <div id="top-links">
-                <div id="top-link-1" class="top-link">
-                    <i class="fa-regular fa-map"></i>
-                </div>
-                <div id="top-link-2" class="top-link">
-                    <i class="fa-regular fa-user"></i>
-                </div>
-                <!-- <div id="top-link-4" class="top-link">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div> -->
-            </div>
+            <div id="bar-separator-1"><i class="fas fa-chevron-right"></i></div>
+            <a href="#">
+                <div id="current-page"><span id="titleDisplay"></span></div>
+            </a>
+            <div id="bar-separator-2"><i class="fas fa-chevron-right"></i></div>
         </div>
         <div id="map">
-            <div class="b-item-2">things I love</div>
-            <a href="https://jerryly.top/pages/apple.html">
-                <div class="b-item">
-                    Apple
+            <div id="map-text">
+                <a href="https://jerryly.top/pages/search.html" target="_blank"><input type="text" id="search"
+                        placeholder="Search for anything..."></a>
+                <div id="map-table-of-contents">
+                    <div>
+                        <div class="b-item-2">things I love</div>
+                        <a href="https://jerryly.top/pages/apple.html">
+                            <div class="b-item">Apple</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/friends.html">
+                            <div class="b-item">Friends</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/music.html">
+                            <div class="b-item">Music</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/taylorswift.html">
+                            <div class="b-item">Swiftie</div>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="b-item-2">festivity</div>
+                        <a href="https://jerryly.top/pages/christmas.html">
+                            <div class="b-item">Christmas</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/homemade_giftcard.html">
+                            <div class="b-item">Homemade Giftcard</div>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="b-item-2">other stuff</div>
+                        <a href="https://jerryly.top/pages/aluminum_studio.html">
+                            <div class="b-item">About</div>
+                        </a>
+                        <a href="https://blog.jerryly.top">
+                            <div class="b-item">Blog&emsp13;&emsp13;<i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                        </a>
+                        <a href="https://jerryly.top/pages/classical_ch_sh.html">
+                            <div class="b-item">Classical Chinese for Senior High</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/classical_ch.html">
+                            <div class="b-item">Classical Chinese for Junior High</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/clock.html">
+                            <div class="b-item">Clock</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/contact.html">
+                            <div class="b-item">Contact</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/develop.html">
+                            <div class="b-item">Develop</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/flashback.html">
+                            <div class="b-item">Rainbow Room</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/gallery.html">
+                            <div class="b-item">Gallery</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/noticeboard.html">
+                            <div class="b-item">Noticeboard</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/search.html">
+                            <div class="b-item">Search (beta)</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/survey.html">
+                            <div class="b-item">Survey</div>
+                        </a>
+                    </div>
                 </div>
-            </a>
-            <a href="https://jerryly.top/pages/friends.html">
-                <div class="b-item">
-                    Friends
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/music.html">
-                <div class="b-item">
-                    Music
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/taylorswift.html">
-                <div class="b-item">
-                    Swiftie
-                </div>
-            </a>
-            <div class="b-item-2">festivity</div>
-            <a href="https://jerryly.top/pages/christmas.html">
-                <div class="b-item">
-                    Christmas
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/homemade_giftcard.html">
-                <div class="b-item">
-                    Homemade Giftcard
-                </div>
-            </a>
-            <div class="b-item-2">other stuff</div>
-            <a href="https://jerryly.top/pages/aluminum_studio.html">
-                <div class="b-item">
-                    About
-                </div>
-            </a>
-            <a href="https://blog.jerryly.top">
-                <div class="b-item">
-                    Blog&emsp13;&emsp13;
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/classical_ch_sh.html">
-                <div class="b-item">
-                    Classical Chinese for Senior High
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/classical_ch.html">
-                <div class="b-item">
-                    Classical Chinese for Junior High
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/clock.html">
-                <div class="b-item">
-                    Clock
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/contact.html">
-                <div class="b-item">
-                    Contact
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/develop.html">
-                <div class="b-item">
-                    Develop
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/flashback.html">
-                <div class="b-item">
-                    Rainbow Room
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/gallery.html">
-                <div class="b-item">
-                    Gallery
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/noticeboard.html">
-                <div class="b-item">
-                    Noticeboard
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/search.html">
-                <div class="b-item">
-                    Search (beta)
-                </div>
-            </a>
-            <a href="https://jerryly.top/pages/survey.html">
-                <div class="b-item">
-                    Survey
-                </div>
-            </a>
-        </div>
-        <div id="me">
-            李江源 / Jerry Li
-            <div id="me-smaller">
-                A student at University of Virginia who loves CS but is being tortured by math
-            </div>
-            <div id="me-smaller-2">
-                learn more at <a href="https://jerryly.top/pages/aluminum_studio.html">my about page</a>
             </div>
         </div>
     </header>
