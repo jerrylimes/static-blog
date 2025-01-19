@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Frozen Flask App{% endblock %}</title>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            // Get the current hour
+            const currentHour = new Date().getHours();
+
+            // Determine the appropriate greeting
+            let greetingText = '';
+            if (currentHour >= 5 && currentHour < 12) {
+                greetingText = 'Good morning';
+            } else if (currentHour >= 12 && currentHour < 18) {
+                greetingText = 'Good afternoon';
+            } else {
+                greetingText = 'Good evening';
+            }
+
+            // Set the text content of the span element
+            $('#greeting-sentence').text(greetingText);
+        });
+
+        // Ensure the DOM is fully loaded before running the script
+        $(document).ready(function () {
+            // Get the title of the document
+            var title = $(document).attr("title");
+            // Display the title inside an element with id 'titleDisplay'
+            $("#titleDisplay").text(title);
+        });
+
+        $(function () {
+            $("#bar-separator-1").click(function () {
+                $("#aerobe").toggleClass("active");
+                $("#map").toggleClass("active");
+                $("#map-text").toggleClass("active");
+            });
+        });
+
+        $(function () {
+            $("#list-of-contents").click(function () {
+                $("#list").toggleClass("active");
+            });
+        });
+    </script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pygments.css') }}">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charter-webfont@4/charter.min.css" />
+</head>
+
+<body>
+    <header id="aerobe">
+        <div id="top-bar">
+            <div id="hello"><span id="greeting-sentence"></span></div>
+            <a href="https://jerryly.top">
+                <div id="home"></div>
+            </a>
+            <div id="bar-separator-1"><i class="fas fa-chevron-right"></i></div>
+            <a href="#">
+                <div id="current-page"><span id="titleDisplay"></span></div>
+            </a>
+            <div id="bar-separator-2"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <div id="map">
+            <div id="map-text">
+                <a href="https://jerryly.top/pages/search.html" target="_blank"><input type="text" id="search"
+                        placeholder="Search for anything..."></a>
+                <div id="map-table-of-contents">
+                    <div>
+                        <div class="b-item-2">things I love</div>
+                        <a href="https://jerryly.top/pages/apple.html">
+                            <div class="b-item">Apple</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/friends.html">
+                            <div class="b-item">Friends</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/music.html">
+                            <div class="b-item">Music</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/taylorswift.html">
+                            <div class="b-item">Swiftie</div>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="b-item-2">festivity</div>
+                        <a href="https://jerryly.top/pages/christmas.html">
+                            <div class="b-item">Christmas</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/homemade_giftcard.html">
+                            <div class="b-item">Homemade Giftcard</div>
+                        </a>
+                    </div>
+                    <div>
+                        <div class="b-item-2">other stuff</div>
+                        <a href="https://jerryly.top/pages/aluminum_studio.html">
+                            <div class="b-item">About</div>
+                        </a>
+                        <a href="https://blog.jerryly.top">
+                            <div class="b-item">Blog&emsp13;&emsp13;<i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                        </a>
+                        <a href="https://jerryly.top/pages/classical_ch_sh.html">
+                            <div class="b-item">Classical Chinese for Senior High</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/classical_ch.html">
+                            <div class="b-item">Classical Chinese for Junior High</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/clock.html">
+                            <div class="b-item">Clock</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/contact.html">
+                            <div class="b-item">Contact</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/develop.html">
+                            <div class="b-item">Develop</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/flashback.html">
+                            <div class="b-item">Rainbow Room</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/gallery.html">
+                            <div class="b-item">Gallery</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/noticeboard.html">
+                            <div class="b-item">Noticeboard</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/search.html">
+                            <div class="b-item">Search (beta)</div>
+                        </a>
+                        <a href="https://jerryly.top/pages/survey.html">
+                            <div class="b-item">Survey</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <p id="list-of-contents"><i class="fa-solid fa-rectangle-list"></i>&emsp;<b>contents</b></p>
+        <ul id="list">
+            <li><a href="{{ url_for('index') }}">主页</a></li>
+            <li><a href="{{ url_for('post', post_name=20240604) }}">美国面签全过程</a></li>
+            <li><a href="{{ url_for('post', post_name=20241004) }}">杂谈</a></li>
+            <li><a href="{{ url_for('post', post_name=20241128) }}">感恩节</a></li>
+            <li><a href="{{ url_for('post', post_name=20250103) }}">二〇二四年度总结</a></li>
+            <li><a href="{{ url_for('post', post_name=20241123) }}">二〇二四年度最佳</a></li>
+            <li><a href="{{ url_for('render_markdown', filename='example') }}">笔记</a></li>
+        </ul>
+    </nav>
+    <div id="back-to-top">
+        <a href="#">
+            <div id="back-button">
+                <i class="fas fa-arrow-up"></i>
+            </div>
+        </a>
+    </div>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <div id="copyright-info">
+        <p class="copyright-info" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a
+                property="dct:title" rel="cc:attributionURL" href="https://jerryly.top">The website
+                https://jerryly.top</a>
+            by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://jerryly.top">Jerry
+                Li</a> is licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1"
+                target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-ND 4.0&emsp13;<img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+        <p class="copyright-info">
+            <a href="mailto:jerrylovesapple@icloud.com">
+                <i class="fa-solid fa-at"></i>
+            </a>
+            &emsp;
+            <a href="javascript:;" onclick="alert('Currently no items in test. Stay tuned!')">
+                <i class="fas fa-flask"></i>
+            </a>
+            &emsp;
+            <a href="https://blog.jerryly.top/20240404.html">
+                <i class="fa-solid fa-scale-balanced"></i>
+            </a>
+        </p>
+    </div>
+    <script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
+</body>
+
+</html>
