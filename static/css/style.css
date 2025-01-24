@@ -7,6 +7,18 @@
 /* All styles */
 
 @font-face {
+    font-family: 'Source Han Sans';
+    font-weight: normal;
+    src: url(../fonts/SourceHanSansCN-Regular-min.woff2);
+}
+
+@font-face {
+    font-family: 'Source Han Sans';
+    font-weight: bold;
+    src: url(../fonts/SourceHanSansCN-Bold-min.woff2);
+}
+
+@font-face {
     font-family: 'ITC Garamond Narrow';
     font-weight: 300;
     font-style: normal;
@@ -52,23 +64,15 @@
     width: fit-content;
     height: 50px;
     position: fixed;
-    left: 10px;
-    top: 10px;
+    left: 0;
+    top: 0;
     display: flex;
     align-items: center;
     overflow: hidden;
     background-color: #fff9f3;
-    border-radius: 10px;
+    border-bottom-right-radius: 10px;
     transition: all 0.5s cubic-bezier(1, -0.065, 0, 1.065);
     z-index: 40;
-}
-
-#lines {
-    height: 41px;
-    padding-top: 8px;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(1, -0.065, 0, 1.065);
-    white-space: nowrap;
 }
 
 #home {
@@ -87,14 +91,6 @@
 
 #home:active {
     background-size: 85%;
-}
-
-.lines {
-    display: block;
-    font-family: 'ITC Garamond Narrow';
-    font-weight: lighter;
-    font-size: 15px;
-    margin-left: 10px;
 }
 
 #waterfall {
@@ -155,8 +151,7 @@
     margin-top: 0px;
 }
 
-#wa-links a,
-#lines a {
+#wa-links a {
     text-decoration: none;
     color: unset;
 }
@@ -212,6 +207,17 @@
     background-color: rgba(192, 192, 192, 0.50);
 }
 
+@media (prefers-color-scheme: dark) {
+    #back-to-top {
+        color: #fff !important;
+    }
+
+    #back-to-top {
+        background-color: rgba(68, 68, 68, 0.85) !important;
+        border: solid 1px #444 !important;
+    }
+}
+
 @keyframes bubble {
     0% {
         top: -1000px;
@@ -227,16 +233,6 @@
 }
 
 @media (max-width: 768px) {
-    #bar {
-        width: calc(100vw - 20px);
-        height: 67.5px;
-        align-items: start;
-    }
-
-    #lines {
-        height: 59.5px;
-    }
-
     #wa-table h3 {
         font-size: 30px;
     }
@@ -244,12 +240,6 @@
     #wa-table ul {
         padding-left: 6px;
         margin-top: 0;
-    }
-}
-
-@media (max-width: 430px) {
-    #lines {
-        white-space: wrap;
     }
 }
 
@@ -308,9 +298,8 @@
     font-weight: bold;
 }
 
-#bar a,
-#waterfall a {
-    color: unset !important;
+a {
+    color: unset;
 }
 
 svg {
@@ -319,270 +308,29 @@ svg {
     fill: black;
 }
 
-@media (prefers-color-scheme: dark) {
-    svg {
-        fill: white;
-    }
-}
-
 footer #text-n {
     font-weight: lighter;
     margin-left: 15px;
 }
 
-/* loader style */
-
-.loader-wrapper {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgb(225, 225, 225);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    font-size: 28px;
-    text-align: center;
-    z-index: 15;
-}
-
-#loader-prompt {
-    font-size: 18px;
-    font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-/* section style */
-
-body {
-    margin: 0;
-}
-
-#content-unit {
-    margin-left: 0px;
-    transition: all 0.2s;
-}
-
-#content-unit.active {
-    margin-left: 0px;
-}
-
-#header-unit {
-    position: fixed;
-    left: 130px;
-    top: 10px;
-    max-width: calc(100% - 150px);
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: rgba(238, 238, 238, 0.5);
-    border: solid 1px #eee;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    -moz-backdrop-filter: blur(12px);
-    font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    z-index: 1;
-    overflow: hidden;
-}
-
-#header-unit>div>a,
-#header-unit>div>span>a {
-    color: #000000;
-}
-
-.header {
-    width: fit-content;
-    height: 24px;
-    font-weight: bold;
-    font-size: 15px;
-    margin-left: 0;
-    display: none;
-}
-
-#quick-links {
-    height: 50px;
-    margin-left: 0;
-    margin-right: 0;
-    border-right: none;
-    white-space: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-#quick-links>b {
-    display: none;
-    padding: unset;
-    padding-left: 10px;
-    font-size: 15px;
-}
-
-.quick-link {
-    display: inline;
-    height: 30px;
-    display: flex;
-    padding-left: 15px;
-    padding-right: 15px;
-    justify-content: center;
-    align-items: center;
-    border-left: solid 1px #ddd;
-    transition: all 0.2s;
-    font-size: 15px;
-}
-
-.quick-link:hover {
-    height: 50px;
-    background-color: #ffffff;
-    border-radius: 10px;
-}
-
-#quick-link-1 {
-    margin-left: 10px;
-}
-
-/* Scrollable content container */
-.content {
-    height: 200vh;
-    /* Makes the page taller than the viewport for scrolling */
-    padding: 20px;
-    font-family: Arial, sans-serif;
-}
-
-/* Scroll indicator */
-.scroll-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 50px;
-    /* Adjust height as needed */
-    width: 0%;
-    background-color: #ffffffca;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    /* Color of the scroll indicator */
-    z-index: -1;
-}
-
-#dev-cal-1 {
-    font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 60px;
-    font-weight: bold;
-    margin-top: 120px;
-}
-
-#dev-cal-1>a {
-    color: #000;
-}
-
-#dev-cal-2 {
-    font-family: 'ITC Garamond Narrow', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 15px;
-    z-index: -1;
-}
-
-#update {
-    font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 20px;
-    color: rgba(0, 0, 0, 0.401);
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-/* element style */
-
-#copyright-info {
-    font-family: 'Inter', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    text-align: center;
-    background-color: #dedede8b;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    -moz-backdrop-filter: blur(12px);
-    position: relative;
-    overflow: hidden;
-    padding: 10px;
-}
-
-.copyright-info {
-    margin: 10px;
-}
-
-.pages-container {
-    width: auto;
-    margin-top: 30px;
-    margin-right: 30px;
-    border: solid 1px #dddddd;
-    margin-left: 30px;
-    padding: 30px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    border-radius: 10px;
-}
-
-#glass {
-    width: 300px;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 0;
-    background-color: #ffffff;
-    border-left: solid 1px #dddddd;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Source Han Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#outside-glass {
-    width: auto;
-    margin-right: 300px;
-}
-
-#exhibit-info {
-    padding: 20px;
-    text-align: center;
-}
-
-#en-warn {
-    margin-left: 30px;
-    margin-right: 30px;
-    border-radius: 10px;
-    width: fit-content;
-    height: fit-content;
-    padding: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: 'Source Han Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border: #dddddd solid 1px;
-    overflow: hidden;
-}
-
-.subtitle {
-    font-weight: bold;
-    font-size: 25px !important;
-}
+/* Blog-specific styles */
 
 nav {
-    width: 20%;
+    width: fit-content;
+    max-width: 20%;
     height: fit-content;
     position: fixed;
     top: 70px;
     right: 10px;
-    font-family: 'Source Han Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: hsl(198, 76%, 98%);
+    font-family: 'Source Han Sans', 'ITC Garamond Narrow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    background-color: #FFF5F2;
     border-radius: 10px;
     overflow: hidden;
+}
+
+nav a {
+    text-decoration: none;
 }
 
 nav>p {
@@ -592,6 +340,7 @@ nav>p {
 nav>ul {
     margin-left: 20px;
     margin-right: 20px;
+    padding-top: 10px;
     padding-left: 0;
     list-style: none;
     border-top: solid 1px #eee;
@@ -623,8 +372,6 @@ nav li {
     padding: 0 3px;
 }
 
-/* Blog-specific styles */
-
 h1,
 h2,
 p,
@@ -641,8 +388,10 @@ footer {
 main {
     margin-top: 60px;
     margin-left: 30px;
+    margin-right: calc(20% + 30px);
     overflow-x: scroll;
     overflow-y: hidden;
+    scrollbar-width: none;
 }
 
 main .post-banner {
@@ -654,13 +403,15 @@ main .post-banner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: hsl(198, 76%, 98%);
+    background-color: #FFF5F2;
     border-radius: 10px;
+    font-family: 'ITC Garamond Narrow', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .post-banner a {
     padding: 10px;
     font-size: 16px !important;
+    text-decoration: none;
 }
 
 .post-banner #title {
@@ -712,71 +463,17 @@ main .post-banner {
     grid-template-columns: 1fr 1fr;
 }
 
-/* media queries */
+footer {
+    margin-left: 30px;
+}
 
-@media (max-width: 430px) {
-    #map {
-        width: 90vw;
-    }
-
-    #map-text input {
-        width: calc(100% - 28px);
-    }
-
-    #map-table-of-contents {
-        width: calc(100% - 18px);
-    }
+#footer-links a {
+    text-decoration: none;
 }
 
 @media (prefers-color-scheme: dark) {
-    #home {
-        background-image: url(../img/home-button-dark.svg);
-    }
-
-    #home:hover,
-    #current-page:hover,
-    #bar-separator-1:hover,
-    #bar-separator-2:hover {
-        background-color: rgb(47, 47, 47);
-    }
-
-    .b-item:hover {
-        background-color: rgb(33, 33, 33);
-        color: #fff;
-    }
-
-    #map,
-    #map.active {
-        border-color: #333;
-    }
-
-    #map.active {
-        background-color: rgb(24, 24, 24);
-    }
-
-    #map-text,
-    #map-text a {
-        color: #ffffff00 !important;
-    }
-
-    #map-text.active,
-    #map-text.active a {
-        color: #fff !important;
-    }
-
-    #map-text.active input {
-        border-color: #333;
-        color: white;
-    }
-
-    .codehilite {
-        border-color: #333;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    #back-to-top {
-        color: #fff !important;
+    svg {
+        fill: white;
     }
 
     main .post-banner {
@@ -795,28 +492,13 @@ main .post-banner {
     #list.active {
         border-bottom-color: #5e5e5e;
     }
+
+    .codehilite {
+        border-color: #333;
+    }
 }
 
 @media (max-width: 768px) {
-    html {
-        scrollbar-color: unset !important;
-    }
-
-    #glass {
-        display: none !important;
-    }
-
-    #outside-glass {
-        width: 100vw !important;
-    }
-
-    #header-unit {
-        right: 0px !important;
-    }
-
-    #quick-links {
-        width: unset !important;
-    }
 
     /* blog-specific */
     nav {
@@ -833,8 +515,8 @@ main .post-banner {
         width: fit-content;
         height: fit-content;
         position: fixed !important;
-        top: 66px !important;
-        left: 10px;
+        top: 10px !important;
+        right: 10px;
         background-color: #fff9f3;
         z-index: 1;
         flex-direction: column;
@@ -845,6 +527,16 @@ main .post-banner {
 
     .post-banner #title {
         display: none;
+    }
+
+    .post-banner span {
+        display: none;
+    }
+
+    .post-banner a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     nav>p,
@@ -877,17 +569,6 @@ main .post-banner {
         overflow-y: scroll;
     }
 
-    @media (prefers-color-scheme: dark) {
-        #header-unit {
-            background-color: rgba(42, 42, 42, 0.5) !important;
-            border: solid 1px #707070;
-        }
-
-        #list.active {
-            border-bottom-color: #5d5d5d;
-        }
-    }
-
     @media (prefers-color-scheme: light) {
         nav {
             background-color: #ffffffad;
@@ -897,201 +578,10 @@ main .post-banner {
             border-top-color: rgb(211, 211, 211) !important;
         }
     }
-}
 
-@media (max-width: 430px) {
-    #aerial {
-        width: calc(100vw - 32px) !important;
-        max-width: unset;
-    }
-
-    #search-bar,
-    #me {
-        width: calc(100% - 10px);
-    }
-
-    #search-bar input {
-        width: calc(100% - 20px) !important;
-    }
-
-    #header-unit {
-        margin-left: 0px;
-        max-width: calc(100% - 32px) !important;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        background: black;
-        color: white;
-    }
-
-    svg {
-        fill: white;
-    }
-
-    a {
-        color: #9AEBA3 !important;
-    }
-
-    #copyright-info {
-        background-color: #3b3b3b8b;
-    }
-
-    #update {
-        color: rgb(255, 255, 255, 0.401) !important;
-    }
-
-    #header-unit,
-    #tool,
-    #header-collapse,
-    #back-to-top {
-        background-color: rgba(68, 68, 68, 0.85) !important;
-        border: solid 1px #444 !important;
-    }
-
-    .quick-link {
-        border-left-color: #555;
-    }
-
-    #quick-links>b {
-        color: rgba(255, 255, 255, 0.5) !important;
-    }
-
-    .quick-link:hover {
-        background-color: #727272 !important;
-    }
-
-    .scroll-indicator {
-        background-color: #808080ca !important;
-    }
-
-    .loader-wrapper {
-        background-color: #4d4d4d !important;
-        color: white !important;
-    }
-
-    #en-warn,
-    .pages-container,
-    #app-element-2,
-    #tool,
-    #header-collapse {
-        border-color: #575757 !important;
-    }
-
-    #glass {
-        background-color: #000 !important;
-        border-left-color: #575757 !important;
-    }
-
-    .crumb>a,
-    .crumb a::after {
-        color: #ffffffd4 !important;
-    }
-
-    .tool-elements>a,
-    #dev-cal-1>a,
-    #header-unit>div>a,
-    #header-unit>div>span>a,
-    .loader-wrapper,
-    .app-element-pop-ups.active>a,
-    .app-element-pop-ups-3.active ul#app-site-list>a {
-        color: white !important;
-    }
-
-    @media (max-width: 768px) {
-
-        .header,
-        #quick-links {
-            border-right: none !important;
+    @media (prefers-color-scheme: dark) {
+        #list.active {
+            border-bottom-color: #5d5d5d;
         }
     }
 }
-
-/* special elements style */
-
-::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    border-radius: 10px;
-    background: rgba(224, 224, 224, 0.8);
-}
-
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background: #f1f1f100;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: #888;
-}
-
-/* Make the scrollbar appear on top of the content */
-html {
-    scrollbar-width: thin;
-    /* For Firefox */
-    scrollbar-color: #888 transparent;
-    /* For Firefox */
-}
-
-body {
-    overflow-y: overlay;
-    /* 仅启用垂直滚动条 */
-    overflow-x: hidden;
-    /* 禁用水平滚动条 */
-}
-
-/* WebKit browsers: Scrollbar customization */
-::-webkit-scrollbar {
-    width: 5px;
-    /* 垂直滚动条宽度 */
-    height: 0px;
-    /* 隐藏水平滚动条 */
-}
-
-::-webkit-scrollbar-track {
-    background: transparent;
-    /* Make track transparent */
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #888;
-    /* Scrollbar color */
-    border-radius: 4px;
-    /* Round scrollbar edges */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-    /* Darker on hover */
-}
-
-
-a {
-    text-decoration: none;
-    color: #13678A;
-}
-
-a:hover {
-    text-decoration: underline;
-    color: hsl(198, 76%, 51%);
-}
-
-@font-face {
-    font-family: 'Source Han Sans';
-    src: url(../fonts/SourceHanSansCN-Regular-min.woff2) format('woff2');
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: 'Source Han Sans';
-    src: url(../fonts/SourceHanSansCN-Bold-min.woff2) format('woff2');
-    font-weight: bold;
-}
-
-/* @-moz-document url-prefix() {
-    div {
-        scrollbar-width: none;
-    }
-} */

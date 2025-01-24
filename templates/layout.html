@@ -12,30 +12,6 @@
                 $("#waterfall").toggleClass("active");
             });
         });
-
-        $(window).on("scroll", function () {
-            if ($(window).width() >= 430) {
-                if ($(this).scrollTop() > 0) {
-                    $("#lines").css("width", "0"); // Fade out
-                    $("#lines").css("opacity", "0"); // Fade out
-                } else {
-                    $("#lines").css("width", "468px"); // Fade in
-                    $("#lines").css("opacity", "1"); // Fade out
-                }
-            } else {
-                if ($(this).scrollTop() > 0) {
-                    $("#lines").css("width", "0"); // Fade out
-                    $("#bar").css("width", "82.8px"); // Fade out
-                    $("#bar").css("height", "46px"); // Fade out
-                    $("#lines").css("opacity", "0"); // Fade out
-                } else {
-                    $("#lines").css("width", "468px"); // Fade in
-                    $("#bar").css("width", "355px"); // Fade in
-                    $("#bar").css("height", "67.5px"); // Fade out
-                    $("#lines").css("opacity", "1"); // Fade out
-                }
-            }
-        });
     </script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -49,11 +25,6 @@
 <body>
     <header id="axon">
         <div id="bar">
-            <div id="lines">
-                <span class="lines" id="lines-2"><b>Jerry Li</b> is a first-year student at University of Virginia.
-                    <a href="https://jerryly.top/pages/about.html">Learn more about his cliche stories.</a></span>
-                <span class="lines">Or not. I'm not him, I don't care.</span>
-            </div>
             <div id="home" tabindex="1">
             </div>
         </div>
@@ -119,7 +90,7 @@
     <main>
         {% block content %}{% endblock %}
     </main>
-    <div id="copyright-info">
+    <footer id="copyright-info">
         <p class="copyright-info" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a
                 property="dct:title" rel="cc:attributionURL" href="https://jerryly.top">The website
                 https://jerryly.top</a>
@@ -132,7 +103,7 @@
                     src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
                     style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
                     src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
-        <p class="copyright-info">
+        <p class="copyright-info" id="footer-links">
             <a href="mailto:jerrylovesapple@icloud.com">
                 <i class="fa-solid fa-at"></i>
             </a>
@@ -145,7 +116,7 @@
                 <i class="fa-solid fa-scale-balanced"></i>
             </a>
         </p>
-    </div>
+    </footer>
 </body>
 
 </html>
