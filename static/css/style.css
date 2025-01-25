@@ -313,20 +313,34 @@ footer #text-n {
     margin-left: 15px;
 }
 
+body {
+    margin: 0;
+}
+
 /* Blog-specific styles */
 
 nav {
-    width: fit-content;
-    max-width: 20%;
+    width: 20%;
     height: fit-content;
     position: fixed;
-    top: 70px;
-    right: 10px;
+    top: 60px;
+    left: calc(80% - 13px);
     font-family: 'Source Han Sans', 'ITC Garamond Narrow', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     background-color: #FFF5F2;
-    border-radius: 10px;
+    border-bottom-right-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+nav::before {
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(172, 172, 172, 0.206), #FFF5F2);
+    content: '';
 }
 
 nav a {
@@ -335,15 +349,21 @@ nav a {
 
 nav>p {
     margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    font-size: 16px;
+    border-top: solid 1px #e0e0e0;
 }
 
 nav>ul {
     margin-left: 20px;
     margin-right: 20px;
-    padding-top: 10px;
     padding-left: 0;
     list-style: none;
-    border-top: solid 1px #eee;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 nav li {
@@ -386,36 +406,63 @@ footer {
 }
 
 main {
-    margin-top: 60px;
-    margin-left: 30px;
-    margin-right: calc(20% + 30px);
+    width: calc(80% - 30px);
+    padding-top: 60px;
+    margin-left: 15px;
     overflow-x: scroll;
     overflow-y: hidden;
     scrollbar-width: none;
+    border: solid 1px #eee;
+    border-radius: 10px;
+}
+
+main p,
+main h2,
+main h3,
+main ul,
+main .codehilite,
+footer {
+    margin-left: 14px;
+    margin-right: 14px;
 }
 
 main .post-banner {
     width: 20%;
-    height: 50px;
+    height: fit-content;
     position: fixed;
     top: 10px;
-    right: 10px;
+    left: calc(80% - 13px);
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     background-color: #FFF5F2;
-    border-radius: 10px;
+    border-top-right-radius: 10px;
     font-family: 'ITC Garamond Narrow', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.post-banner::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(172, 172, 172, 0.206), #FFF5F2);
+    content: '';
+}
+
 .post-banner a {
-    padding: 10px;
     font-size: 16px !important;
     text-decoration: none;
+    padding-left: 20px;
+    margin-top: 15px;
 }
 
 .post-banner #title {
+    margin: 0;
+    margin-top: 10px;
     font-size: 20px;
+    padding-left: 20px;
     padding-right: 10px;
     transition: all 0.2s;
 }
@@ -476,17 +523,22 @@ footer {
         fill: white;
     }
 
+    main {
+        border-color: #333;
+    }
+
     main .post-banner {
         border-bottom-color: #333;
     }
 
     nav,
     main .post-banner {
-        background-color: #1e1e1e !important;
+        background-color: #2b2b2b !important;
     }
 
-    nav>ul {
-        border-top-color: #333 !important;
+    nav::before,
+    .post-banner::before {
+        background-image: linear-gradient(to right, rgb(25, 25, 25), #2b2b2b);
     }
 
     #list.active {
@@ -506,23 +558,34 @@ footer {
     }
 
     main {
-        width: calc(100% - 60px) !important;
-        margin-left: 30px !important;
-        margin-top: 120px !important;
+        width: calc(100% - 32px) !important;
+        margin-left: 15px !important;
+        margin-top: 60px !important;
+        padding-top: 0 !important;
     }
 
     main .post-banner {
-        width: fit-content;
-        height: fit-content;
+        width: 40px;
+        height: 40px;
         position: fixed !important;
         top: 10px !important;
+        left: unset !important;
         right: 10px;
         background-color: #fff9f3;
         z-index: 1;
-        flex-direction: column;
-        padding-top: 0;
-        padding-bottom: 0 !important;
-        border-bottom: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+    }
+
+    main a {
+        margin-top: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    main .post-banner::before {
+        display: none;
     }
 
     .post-banner #title {
@@ -572,10 +635,6 @@ footer {
     @media (prefers-color-scheme: light) {
         nav {
             background-color: #ffffffad;
-        }
-
-        nav>ul {
-            border-top-color: rgb(211, 211, 211) !important;
         }
     }
 
