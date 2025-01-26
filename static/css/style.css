@@ -368,6 +368,15 @@ nav>ul {
 
 nav li {
     margin-bottom: 5px;
+    font-size: 16px;
+    padding: 2px;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+nav li:hover {
+    padding-left: 10px;
+    background: hsl(14, 100%, 77%);
 }
 
 .crumbs ol {
@@ -413,7 +422,9 @@ main {
     overflow-y: hidden;
     scrollbar-width: none;
     border: solid 1px #eee;
-    border-radius: 10px;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 main p,
@@ -421,6 +432,7 @@ main h2,
 main h3,
 main ul,
 main .codehilite,
+main a,
 footer {
     margin-left: 14px;
     margin-right: 14px;
@@ -429,6 +441,7 @@ footer {
 main .post-banner {
     width: 20%;
     height: fit-content;
+    min-height: 50px;
     position: fixed;
     top: 10px;
     left: calc(80% - 13px);
@@ -454,7 +467,7 @@ main .post-banner {
 .post-banner a {
     font-size: 16px !important;
     text-decoration: none;
-    padding-left: 20px;
+    padding-left: 5px;
     margin-top: 15px;
 }
 

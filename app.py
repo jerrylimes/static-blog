@@ -36,6 +36,7 @@ def post(post_name):
 
     try:
         with open(post_path, 'r') as file:
+            file = open(post_path, encoding="utf8")
             content = file.read()
         return render_template('post.html', title=post_name.capitalize(), content=content, post_name=post_name)
     except FileNotFoundError:
@@ -51,6 +52,7 @@ def render_markdown(filename):
     if md_file_path.exists():
         # Read the Markdown file
         with open(md_file_path, 'r') as md_file:
+            md_file = open(md_file_path, encoding="utf8")
             content = md_file.read()
 
         # Convert Markdown to HTML with syntax highlighting

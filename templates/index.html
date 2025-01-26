@@ -3,17 +3,21 @@
 {% block title %}Jerry's blog...{% endblock %}
 
 {% block content %}
+<div class="post-banner">
+    <a id="text-n" href="{{ url_for('index') }}"><i class="fa-solid fa-house"></i><span>&emsp;Back to Blog</span></a>
+    <h1 id="title">{{ title }}</h1>
+</div>
 <h2>Jerry's blog 李江源的博客</h2>
-<p id="dev-cal-2">
+<p id="text-n">
     A term coined by Peter Merholz, who jokingly broke the word weblog into the phrase we blog in the sidebar of his
     blog Peterme.com in April or May 1999, blog is a form of documentation that many regard outdated under the current
     prevalence of social media.
 </p>
-<p id="dev-cal-2">
+<p id="text-n">
     A documentation, however, remains necessary and critical under almost every circumstance where one needs to look up
     for information about an API of a programming language. Thus blogs persist to this day.
 </p>
-<p id="dev-cal-2">
+<p id="text-n">
     This blog contains much more than documentations - in fact, there are no documentation here just for now - it's more
     personal and records some notes and niceties of my life.
     I hope you enjoy reading it.
@@ -21,10 +25,10 @@
 <h3>日志位于左侧边栏。 Click on the entries on the left-hand side.</h3>
 <!-- <ul>
     {% for post in posts %}
-    <li id="dev-cal-2"><a href="{{ url_for('post', post_name=post) }}">{{ post | capitalize }}</a></li>
+    <li id="text-n"><a href="{{ url_for('post', post_name=post) }}">{{ post | capitalize }}</a></li>
     {% endfor %}
 </ul> -->
-<a id="dev-cal-2" href="{{ url_for('post', post_name=20240404) }}">
+<a id="text-n" href="{{ url_for('post', post_name=20240404) }}">
     <i class="fa-solid fa-scale-balanced"></i>&emsp;<b>Legal statement</b>
 </a>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
