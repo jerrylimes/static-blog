@@ -647,6 +647,12 @@ footer {
     }
 
     @media (prefers-color-scheme: dark) {
+
+        .post-banner::after,
+        nav::after {
+            background-image: linear-gradient(to left, rgb(25, 25, 25), #2b2b2b);
+        }
+
         #list.active {
             border-bottom-color: #5d5d5d;
         }
