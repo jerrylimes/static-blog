@@ -85,7 +85,7 @@
     height: 45px;
     margin-left: 2.5px;
     margin-top: 2.5px;
-    background-image: url(../images/home-button-light.svg);
+    background-image: url(../img/home-button-light.svg);
     background-size: cover;
     transition: all 0.2s;
     position: absolute;
@@ -235,7 +235,7 @@
     }
 
     #home {
-        background-image: url(../images/home-button-dark.svg);
+        background-image: url(../img/home-button-dark.svg);
     }
 
     #waterfall.active #bubble-1 {
