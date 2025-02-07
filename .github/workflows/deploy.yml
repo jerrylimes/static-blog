@@ -16,11 +16,11 @@ jobs:
     steps:
     # Step 1: Checkout the repository
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # Step 2: Set up Python
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: 3.9
 
@@ -37,7 +37,7 @@ jobs:
 
     # Step 5: Deploy GitHub Pages
     - name: Upload artifact for Pages
-      uses: actions/upload-pages-artifact@v1
+      uses: actions/upload-pages-artifact@v3
       with:
         path: ./build  # Specify the folder containing static files
 
@@ -49,4 +49,4 @@ jobs:
       pages: write      # Required for GitHub Pages deployments
     steps:
     - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v2
+      uses: actions/deploy-pages@v4
