@@ -387,7 +387,7 @@ nav>p {
     margin-top: 30px;
     padding-top: 15px;
     margin-bottom: 0;
-    font-size: 16px;
+    font-size: 15px;
     border-top: solid 1px #e0e0e0;
 }
 
@@ -401,8 +401,8 @@ nav>ul {
 }
 
 nav li {
-    margin-bottom: 5px;
-    font-size: 16px;
+    margin-bottom: 2px;
+    font-size: 15px;
     padding: 2px;
     border-radius: 5px;
     transition: all 0.2s;
@@ -413,26 +413,28 @@ nav li:hover {
     background: hsl(14, 100%, 77%);
 }
 
-.crumbs ol {
-    list-style-type: none;
-    padding-left: 0;
+#post-flip {
+    position: fixed;
+    right: 4px;
+    top: 20px;
+    display: flex;
 }
 
-.crumb {
-    display: inline-block;
+#post-flip a {
+    width: 40px;
+    height: 40px;
+    border: solid 1px #eee;
+    margin-right: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
-.crumb>a {
-    color: #38383891;
-}
-
-.crumb a::after {
-    display: inline-block;
-    color: #38383891;
-    content: ' / ';
-    font-size: 80%;
-    font-weight: bold;
-    padding: 0 3px;
+#post-flip a:hover {
+    background-color: #eee;
 }
 
 h1,
@@ -450,7 +452,7 @@ footer {
 
 main {
     width: calc(80% - 30px);
-    margin-top: 60px;
+    margin-top: 70px;
     margin-left: 15px;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -477,6 +479,7 @@ main .post-banner {
     position: fixed;
     top: 80px;
     left: calc(80% - 14px);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -508,8 +511,10 @@ main .post-banner {
     margin-top: 10px;
     font-size: 20px;
     padding-left: 20px;
-    padding-right: 10px;
+    margin-right: 10px;
     transition: all 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .b-item>ul {
@@ -587,6 +592,14 @@ footer {
         background-image: linear-gradient(to right, rgb(25, 25, 25), #2b2b2b);
     }
 
+    #post-flip a {
+        border-color: #333;
+    }
+
+    #post-flip a:hover {
+        background-color: #333;
+    }
+
     #list.active {
         border-bottom-color: #5e5e5e;
     }
@@ -619,7 +632,7 @@ footer {
     main {
         width: calc(100% - 32px) !important;
         margin-left: 15px !important;
-        margin-top: 60px !important;
+        margin-top: 70px !important;
         padding-top: 0 !important;
     }
 
@@ -631,6 +644,7 @@ footer {
         left: unset !important;
         right: 16px;
         background-color: #fff9f3;
+        background-image: unset;
         z-index: 1;
         display: flex;
         justify-content: center;

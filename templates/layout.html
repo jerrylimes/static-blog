@@ -143,6 +143,18 @@
             <li><a href="{{ url_for('render_markdown', filename='CS2100-Notes') }}">CS 2100 Notes</a></li>
         </ul>
     </nav>
+    <div id="post-flip">
+        {% if prev_page %}
+        <a href="{{ prev_page }}">
+            <i class="fa-solid fa-circle-chevron-left"></i>
+        </a>
+        {% endif %}
+        {% if next_page %}
+        <a href="{{ next_page }}">
+            <i class="fa-solid fa-circle-chevron-right"></i>
+        </a>
+        {% endif %}
+    </div>
     <div id="back-to-top">
         <a href="#">
             <div id="back-button">

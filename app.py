@@ -1,4 +1,5 @@
 import os
+import json
 import markdown
 from flask_frozen import Freezer
 from flask import Flask, render_template, abort
@@ -21,24 +22,43 @@ def index():
 # Route for individual posts
 
 
+# Load metadata.json
+with open("metadata.json") as f:
+    pages = json.load(f)
+
+# Create a dictionary mapping filenames to metadata
+page_dict = {p["filename"]: p for p in pages}
+
+
 @app.route('/<path:post_name>.html')
 def post(post_name):
-    # The `post_name` will include the folder path if it's inside a folder like 'hello'
-    post_path = f'{post_name}.html'  # Check the root directory first
+    # Possible post locations
+    possible_paths = [
+        f"{post_name}.html",  # Check root directory
+        f"posts/{post_name}.html"  # Check posts folder
+    ]
 
-    # If the post doesn't exist in the root, check the posts directory
-    if not os.path.exists(post_path):
-        post_path = f'posts/{post_name}.html'  # Check posts folder
+    # Find the actual post path
+    post_path = next((p for p in possible_paths if os.path.exists(p)), None)
 
-    # If the post is inside a nested folder like posts/hello/
-    if not os.path.exists(post_path):
-        post_path = f'posts/{post_name}.html'
+    if not post_path:
+        abort(404)
 
     try:
-        with open(post_path, 'r') as file:
-            file = open(post_path, encoding="utf8")
+        with open(post_path, encoding="utf8") as file:
             content = file.read()
-        return render_template('post.html', title=post_name.capitalize(), content=content, post_name=post_name)
+
+        # Find metadata for the current post
+        page_data = page_dict.get(post_name + ".html", {})
+
+        return render_template(
+            "post.html",
+            title=page_data.get("title", post_name.capitalize()),
+            content=content,
+            prev_page=page_data.get("prev"),
+            next_page=page_data.get("next")
+        )
+
     except FileNotFoundError:
         abort(404)
 
