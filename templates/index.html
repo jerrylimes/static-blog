@@ -3,10 +3,6 @@
 {% block title %}Jerry's blog...{% endblock %}
 
 {% block content %}
-<div class="post-banner">
-    <a id="text-n" href="{{ url_for('index') }}"><i class="fa-solid fa-house"></i><span>&emsp;Back to Blog</span></a>
-    <h1 id="title">{{ title }}</h1>
-</div>
 <h2>Jerry's blog 李江源的博客</h2>
 <p id="text-n">
     A term coined by Peter Merholz, who jokingly broke the word weblog into the phrase we blog in the sidebar of his
@@ -22,7 +18,9 @@
     personal and records some notes and niceties of my life.
     I hope you enjoy reading it.
 </p>
-<h3>日志位于左侧边栏。 Click on the entries on the left-hand side.</h3>
+<p id="text-n">
+    <b>日志位于右侧边栏。 Click on the entries on the right-hand side.</b>
+</p>
 <!-- <ul>
     {% for post in posts %}
     <li id="text-n"><a href="{{ url_for('post', post_name=post) }}">{{ post | capitalize }}</a></li>
@@ -31,6 +29,5 @@
 <a id="text-n" href="{{ url_for('post', post_name=20240404) }}">
     <i class="fa-solid fa-scale-balanced"></i>&emsp;<b>Legal statement</b>
 </a>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 {% endblock %}
