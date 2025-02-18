@@ -86,7 +86,9 @@
     margin-left: 2.5px;
     margin-top: 2.5px;
     background-image: url(../img/home-button-light.svg);
-    background-size: cover;
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-position: center;
     transition: all 0.2s;
     position: absolute;
 }
