@@ -12,6 +12,7 @@
             $("#home").click(function () {
                 $("#bartender").toggleClass("active");
                 $("#content-unit").toggleClass("active");
+                $("footer").toggleClass("active");
             });
         });
     </script>
@@ -93,7 +94,8 @@
                 <h1 id="title">{{ title }}</h1>
             </div>
             <nav tabindex="1">
-                <p id="list-of-contents"><i class="fa-solid fa-rectangle-list"></i><b>&emsp;Contents</b></p>
+                <p id="list-of-contents"><a href="{{ url_for('post', post_name='content') }}"><i
+                            class="fa-solid fa-rectangle-list"></i><b>&emsp;Contents</b></a></p>
                 <ul id="list">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('post', post_name=20240604) }}">Jun 4 2024</a></li>
