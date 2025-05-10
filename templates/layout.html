@@ -5,87 +5,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>{% block title %}My Frozen Flask App{% endblock %}</title>
-    <script src="{{ url_for('static', filename='js/jquery-3.7.1.js') }}"></script>
-    <script>
-        $(function () {
-            $("#home").click(function () {
-                $("#bartender").toggleClass("active");
-                $("#content-unit").toggleClass("active");
-                $("footer").toggleClass("active");
-            });
-        });
-    </script>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <title>Hello.</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pygments.css') }}">
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charter-webfont@4/charter.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header id="bartender">
-        <div id="home"></div>
-        <div id="more">
-            <div id="more-links">
-                <div class="more-link">
-                    <a href="https://blog.jerryly.top">Blog</a>
+    <header id="top">
+        <div id="top-wrapper">
+            <div id="top-bar">
+                <div id="greet">
+                    <a href="https://jerryly.top">
+                        <div id="home">
+                            <div id="logo"></div>
+                        </div>
+                    </a>
+                    <div id="greeting"></div>
                 </div>
-                <div class="more-link">
-                    <a href="https://live.jerryly.top">Live</a>
+                <div id="ext">
+                    <div class="top-button" id="top-buttons-1">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path
+                                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                        </svg>
+                    </div>
+                    <a href="https://live.jerryly.top">
+                        <div class="top-button" id="top-buttons-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M168 80c-13.3 0-24 10.7-24 24l0 304c0 8.4-1.4 16.5-4.1 24L440 432c13.3 0 24-10.7 24-24l0-304c0-13.3-10.7-24-24-24L168 80zM72 480c-39.8 0-72-32.2-72-72L0 112C0 98.7 10.7 88 24 88s24 10.7 24 24l0 296c0 13.3 10.7 24 24 24s24-10.7 24-24l0-304c0-39.8 32.2-72 72-72l272 0c39.8 0 72 32.2 72 72l0 304c0 39.8-32.2 72-72 72L72 480zM176 136c0-13.3 10.7-24 24-24l96 0c13.3 0 24 10.7 24 24l0 80c0 13.3-10.7 24-24 24l-96 0c-13.3 0-24-10.7-24-24l0-80zm200-24l32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm0 80l32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zM200 272l208 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-208 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm0 80l208 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-208 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z" />
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="https://old.jerryly.top/pages/contact">
+                        <div class="top-button" id="top-buttons-3">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M256 48C141.1 48 48 141.1 48 256l0 40c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-40C0 114.6 114.6 0 256 0S512 114.6 512 256l0 144.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24l-32 0c-26.5 0-48-21.5-48-48s21.5-48 48-48l32 0c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40L464 256c0-114.9-93.1-208-208-208zM144 208l16 0c17.7 0 32 14.3 32 32l0 112c0 17.7-14.3 32-32 32l-16 0c-35.3 0-64-28.7-64-64l0-48c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64l0 48c0 35.3-28.7 64-64 64l-16 0c-17.7 0-32-14.3-32-32l0-112c0-17.7 14.3-32 32-32l16 0z" />
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="top-button" id="top-buttons-4">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path
+                                d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
+                        </svg>
+                    </div>
                 </div>
-                <div class="more-link">
-                    <a href="https://jerryly.top/pages/about.html">About Me</a>
-                </div>
-                <div class="more-link">
-                    <a href="https://jerryly.top/pages/apple.html">9:41</a>
-                </div>
-                <div class="more-link">
-                    <a href="https://jerryly.top/pages/classical_ch.html">古文</a>
-                </div>
-                <div class="more-link">
-                    <a href="https://jerryly.top/pages/contact.html">Contact</a>
-                </div>
-                <div class="more-link">
-                    <a href="https://jerryly.top/pages/gallery.html">Gallery</a>
-                </div>
-                <div class="more-link">
-                    <a href="https://jerryly.top/pages/music.html">Music</a>
-                </div>
-                <div class="more-link">
-                    <a href="https://jerryly.top/pages/search.html">Search</a>
+                <div id="inquiry">
+                    <div id="clock">
+                        <span id="hour"></span>:
+                        <span id="minute"></span>
+                    </div>
+                    <a href="https://github.com/jerrylovescheese/jerrylovescheese/blob/main/Resume%20(May%202025).pdf">
+                        <div id="top-card">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                <path
+                                    d="M64 464c-8.8 0-16-7.2-16-16L48 64c0-8.8 7.2-16 16-16l160 0 0 80c0 17.7 14.3 32 32 32l80 0 0 288c0 8.8-7.2 16-16 16L64 464zM64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-293.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0L64 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z" />
+                            </svg>
+                        </div>
+                    </a>
                 </div>
             </div>
-            <div id="more-letter">
-                <div class="more-title">Hi. This is Jerry Li.</div>
-                <p class="more-text">And you're looking at an accumulative project of his that has been through more
-                    than 1,000 commits, 10+ iterations, and multiple overhauls - his website. </p>
-                <p class="more-text">To answer the question that you probably have in your head, indeed, one has to be
-                    unimaginably narcissistic to care so much to squander hours on something only he or she would ever
-                    even see. But in my defense, a website - any website - is more than its viewers or users. I'd argue
-                    that
-                    to obtain an optimal user experience, every minute detail that would end up being undiscovered by
-                    anyone matters just as much as the visuals and buttons that are front and center.</p>
-                <p class="more-text">I'm currently a first-year student at University of Virginia majoring in Computer
-                    Science (BA), and while "CS-major college students" has lost its glamour long ago, I feel confident
-                    to say that I'm the dumbest of them all. No seriously, I'm extremely concerened about that Toy ISA
-                    stuff I'm about to be tested on next Tuesday while I'm writing this.</p>
-                <p class="more-text">Will I later realize that including this piece of information should count as
-                    oversharing and regret doing so? Maybe. Will I delete it? No. I know what I'm terrible at, but I
-                    also know what I love, even if I'm not an expert. I am passionate about <b>softwares</b>, about
-                    <b>designs</b>, about <b>music</b>, and about <b>user interfaces</b>.
-                </p>
-                <p class="more-text">As I had repeatedly told myself, it's okay to fall down and cry. It's okay to fall
-                    at the same spot and cry again. But it's never okay to bypass that spot with a mindset of "I'll
-                    never get through without falling" - that's self-deceiving. Everything and everyone's changing.</p>
-                <p class="more-text">
-                    Give them, and give ourselves, time and patience.
-                </p>
+            <div id="top-info">
+                Select a button to see what it does.
             </div>
         </div>
     </header>
+    <div id="backlight"></div>
     <div id="content-unit">
         <div id="bookmark">
             <div class="post-banner">
@@ -158,6 +154,71 @@
             </a>
         </p>
     </footer>
+    <script>
+        const now = new Date();
+        if (now.getHours() < 17) {
+            document.getElementById("greeting").innerText = "Bonjour";
+        } else {
+            document.getElementById("greeting").innerText = "Bonsoir";
+        }
+
+        function updateClock() {
+            const clock = new Date();
+            const curHr = clock.getHours().toString().padStart(2, "0");
+            const curMin = clock.getMinutes().toString().padStart(2, "0");
+            document.getElementById("hour").innerText = curHr;
+            document.getElementById("minute").innerText = curMin;
+        }
+
+        setInterval(() => {
+            updateClock();
+        }, 1000);
+
+        $("#top-wrapper").hover(function () {
+            $("#top-wrapper").toggleClass("active");
+            $("#top-info").toggleClass("active");
+        });
+
+        $("#top-wrapper").hover(function () {
+            document.getElementById("top-info").innerText = "Select a button to see what it does.";
+        });
+
+        $("#home").hover(function () {
+            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">jerryly.top</span>click to return to the main page.";
+        });
+
+        $("#top-buttons-1").hover(function () {
+            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">goto</span>go to my <a href=\"https://blog.jerryly.top\">blog</a> or <a href=\"https://github.com/jerrylovescheese\">my other projects on GitHub.</a>";
+        });
+
+        $("#top-buttons-2").hover(function () {
+            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">news</span>check out my news site.";
+        });
+
+        $("#top-buttons-3").hover(function () {
+            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">contact</span>find me on Twitter at @jerrylovestweet. Click for more contacts.";
+        });
+
+        $("#top-buttons-4").hover(function () {
+            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">about</span>Hi! I'm Jerry Li, and I'm a first-year student at the University of Virginia majoring in Computer Science (Bachelor of Arts).";
+        });
+
+        $("#top-card").hover(function () {
+            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">Resume</span>Click for my resume.";
+        });
+
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY) {
+                $("#ext, #inquiry").addClass("hide");
+            } else if (currentScrollY < lastScrollY) {
+                $("#ext, #inquiry").removeClass("hide");
+            }
+            lastScrollY = currentScrollY;
+        })
+    </script>
 </body>
 
 </html>
