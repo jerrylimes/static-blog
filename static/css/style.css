@@ -581,6 +581,24 @@ svg {
 
 /* Blog-specific styles */
 
+@font-face {
+    font-family: 'Source Han Sans';
+    font-weight: normal;
+    font-style: normal;
+    src: url(../fonts/SourceHanSansCN-Regular-min.woff2);
+}
+
+@font-face {
+    font-family: 'Source Han Sans';
+    font-weight: bold;
+    font-style: normal;
+    src: url(../fonts/SourceHanSansCN-Bold-min.woff2);
+}
+
+main {
+    font-family: 'Source Han Sans', 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 #logo {
     background-image: url(../img/logo-button-light.svg);
 }
