@@ -5,83 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>Hello.</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>so I have this website...</title>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pygments.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.css') }}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=alternate_email,arrow_forward,exit_to_app,gavel,info,person_add,science,web_stories" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header id="top">
-        <div id="top-wrapper">
-            <div id="top-bar">
-                <div id="greet">
-                    <a href="https://jerryly.top">
-                        <div id="home">
-                            <div id="logo"></div>
-                        </div>
-                    </a>
-                    <div id="greeting"></div>
-                </div>
-                <div id="ext">
-                    <div class="top-button" id="top-buttons-1">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 320 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path
-                                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
-                        </svg>
-                    </div>
-                    <a href="https://live.jerryly.top">
-                        <div class="top-button" id="top-buttons-2">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                <path
-                                    d="M168 80c-13.3 0-24 10.7-24 24l0 304c0 8.4-1.4 16.5-4.1 24L440 432c13.3 0 24-10.7 24-24l0-304c0-13.3-10.7-24-24-24L168 80zM72 480c-39.8 0-72-32.2-72-72L0 112C0 98.7 10.7 88 24 88s24 10.7 24 24l0 296c0 13.3 10.7 24 24 24s24-10.7 24-24l0-304c0-39.8 32.2-72 72-72l272 0c39.8 0 72 32.2 72 72l0 304c0 39.8-32.2 72-72 72L72 480zM176 136c0-13.3 10.7-24 24-24l96 0c13.3 0 24 10.7 24 24l0 80c0 13.3-10.7 24-24 24l-96 0c-13.3 0-24-10.7-24-24l0-80zm200-24l32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm0 80l32 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-32 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zM200 272l208 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-208 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm0 80l208 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-208 0c-13.3 0-24-10.7-24-24s10.7-24 24-24z" />
-                            </svg>
-                        </div>
-                    </a>
-                    <a href="https://old.jerryly.top/pages/contact">
-                        <div class="top-button" id="top-buttons-3">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                <path
-                                    d="M256 48C141.1 48 48 141.1 48 256l0 40c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-40C0 114.6 114.6 0 256 0S512 114.6 512 256l0 144.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24l-32 0c-26.5 0-48-21.5-48-48s21.5-48 48-48l32 0c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40L464 256c0-114.9-93.1-208-208-208zM144 208l16 0c17.7 0 32 14.3 32 32l0 112c0 17.7-14.3 32-32 32l-16 0c-35.3 0-64-28.7-64-64l0-48c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64l0 48c0 35.3-28.7 64-64 64l-16 0c-17.7 0-32-14.3-32-32l0-112c0-17.7 14.3-32 32-32l16 0z" />
-                            </svg>
-                        </div>
-                    </a>
-                    <div class="top-button" id="top-buttons-4">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path
-                                d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
-                        </svg>
-                    </div>
-                </div>
-                <div id="inquiry">
-                    <div id="clock">
-                        <span id="hour"></span>:
-                        <span id="minute"></span>
-                    </div>
-                    <a href="https://github.com/jerrylovescheese/jerrylovescheese/blob/main/Resume%20(May%202025).pdf">
-                        <div id="top-card">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                                <path
-                                    d="M64 464c-8.8 0-16-7.2-16-16L48 64c0-8.8 7.2-16 16-16l160 0 0 80c0 17.7 14.3 32 32 32l80 0 0 288c0 8.8-7.2 16-16 16L64 464zM64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-293.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0L64 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z" />
-                            </svg>
-                        </div>
-                    </a>
+    <header id="inscape-wrapper">
+        <div id="inscape">
+            <div id="home">
+                <div id="logo">
                 </div>
             </div>
-            <div id="top-info">
-                Select a button to see what it does.
+            <div class="inscape-button" id="is-button-1">
+                <span class="material-symbols-outlined inscape-button-glyph">exit_to_app</span>
+                <span class="inscape-button-label">goto</span>
+            </div>
+            <div class="inscape-button" id="is-button-2">
+                <span class="material-symbols-outlined inscape-button-glyph">web_stories</span>
+                <span class="inscape-button-label">projects</span>
+            </div>
+            <div class="inscape-button" id="is-button-3">
+                <span class="material-symbols-outlined inscape-button-glyph">person_add</span>
+                <span class="inscape-button-label">contact</span>
+            </div>
+            <div class="inscape-button" id="is-button-4">
+                <span class="material-symbols-outlined inscape-button-glyph">info</span>
+                <span class="inscape-button-label">about</span>
+            </div>
+            <div id="is-exp">
+
             </div>
         </div>
     </header>
+
     <div id="backlight"></div>
     <div id="content-unit">
         <div id="bookmark">
@@ -128,13 +91,14 @@
             {% block content %}{% endblock %}
         </main>
     </div>
+
     <footer id="copyright-info">
         <p class="copyright-info" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a
                 property="dct:title" rel="cc:attributionURL" href="https://jerryly.top">The website
                 https://jerryly.top</a>
             by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://jerryly.top">Jerry
                 Li</a> is licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1"
-                target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-ND 4.0&emsp13;<img
+                target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-ND 4.0 <img
                     style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
                     src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
                     style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
@@ -143,94 +107,63 @@
                     src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
         <p class="copyright-info" id="footer-links">
             <a href="mailto:jerrylovesapple@icloud.com">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                    <path
-                        d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256l0 32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32l0 80 0 32c0 17.7 14.3 32 32 32s32-14.3 32-32l0-32c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z" />
-                </svg>
+                <span class="material-symbols-outlined">alternate_email</span>
             </a>
-            &emsp;
             <a href="javascript:;" onclick="alert('Currently no items in test. Stay tuned!')">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                    <path
-                        d="M288 0L160 0 128 0C110.3 0 96 14.3 96 32s14.3 32 32 32l0 132.8c0 11.8-3.3 23.5-9.5 33.5L10.3 406.2C3.6 417.2 0 429.7 0 442.6C0 480.9 31.1 512 69.4 512l309.2 0c38.3 0 69.4-31.1 69.4-69.4c0-12.8-3.6-25.4-10.3-36.4L329.5 230.4c-6.2-10.1-9.5-21.7-9.5-33.5L320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32L288 0zM192 196.8L192 64l64 0 0 132.8c0 23.7 6.6 46.9 19 67.1L309.5 320l-171 0L173 263.9c12.4-20.2 19-43.4 19-67.1z" />
-                </svg>
+                <span class="material-symbols-outlined">science</span>
             </a>
-            &emsp;
             <a href="https://blog.jerryly.top/20240404.html">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                    <path
-                        d="M384 32l128 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L398.4 96c-5.2 25.8-22.9 47.1-46.4 57.3L352 448l160 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-192 0-192 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l160 0 0-294.7c-23.5-10.3-41.2-31.6-46.4-57.3L128 96c-17.7 0-32-14.3-32-32s14.3-32 32-32l128 0c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zm55.6 288l144.9 0L512 195.8 439.6 320zM512 416c-62.9 0-115.2-34-126-78.9c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C627.2 382 574.9 416 512 416zM126.8 195.8L54.4 320l144.9 0L126.8 195.8zM.9 337.1c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C242 382 189.7 416 126.8 416S11.7 382 .9 337.1z" />
-                </svg>
+                <span class="material-symbols-outlined">gavel</span>
             </a>
         </p>
     </footer>
     <script>
-        const now = new Date();
-        if (now.getHours() < 17) {
-            document.getElementById("greeting").innerText = "Bonjour";
-        } else {
-            document.getElementById("greeting").innerText = "Bonsoir";
-        }
-
-        function updateClock() {
-            const clock = new Date();
-            const curHr = clock.getHours().toString().padStart(2, "0");
-            const curMin = clock.getMinutes().toString().padStart(2, "0");
-            document.getElementById("hour").innerText = curHr;
-            document.getElementById("minute").innerText = curMin;
-        }
-
-        setInterval(() => {
-            updateClock();
-        }, 1000);
-
-        $("#top-wrapper").hover(function () {
-            $("#top-wrapper").toggleClass("active");
-            $("#top-info").toggleClass("active");
-        });
-
-        $("#top-wrapper").hover(function () {
-            document.getElementById("top-info").innerText = "Select a button to see what it does.";
-        });
-
-        $("#home").hover(function () {
-            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">jerryly.top</span>click to return to the main page.";
-        });
-
-        $("#top-buttons-1").hover(function () {
-            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">goto</span>go to my <a href=\"https://blog.jerryly.top\">blog</a> or <a href=\"https://github.com/jerrylovescheese\">my other projects on GitHub.</a>";
-        });
-
-        $("#top-buttons-2").hover(function () {
-            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">news</span>check out my news site.";
-        });
-
-        $("#top-buttons-3").hover(function () {
-            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">contact</span>find me on Twitter at @jerrylovestweet. Click for more contacts.";
-        });
-
-        $("#top-buttons-4").hover(function () {
-            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">about</span>Hi! I'm Jerry Li, and I'm a first-year student at the University of Virginia majoring in Computer Science (Bachelor of Arts).";
-        });
-
-        $("#top-card").hover(function () {
-            document.getElementById("top-info").innerHTML = "<span class=\"top-info-heading\">Resume</span>Click for my resume.";
-        });
-
-        let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-
-            if (currentScrollY > lastScrollY) {
-                $("#ext, #inquiry").addClass("hide");
-            } else if (currentScrollY < lastScrollY) {
-                $("#ext, #inquiry").removeClass("hide");
+        $(document).mousemove(function (event) {
+            const windowWidth = $(window).width() * 0.1;
+            if (event.pageX <= windowWidth) {
+                $('#inscape').addClass('hover');
+            } else {
+                if (!$('#inscape').is(':hover') && !$('.inscape-button:hover').length) {
+                    $('#inscape').removeClass('hover');
+                }
             }
-            lastScrollY = currentScrollY;
+        });
+
+        $(document).click(function (event) {
+            if (!$(event.target).closest('#inscape').length) {
+                $('#inscape').removeClass('hover');
+                $('#inscape').removeClass('expanded');
+            }
+        });
+
+        $('.inscape-button').click(function () {
+            $('#inscape').addClass('expanded');
         })
+
+        $('.inscape-button').click(function () {
+            // 1️⃣ Remove highlight from all buttons and remove padding
+            $('.inscape-button').removeClass('highlight');
+            $('#is-exp').removeClass('togglePadding');
+
+            // 2️⃣ Highlight the clicked button and add padding
+            $(this).addClass('highlight');
+            $('#is-exp').addClass('togglePadding');
+
+            // 3️⃣ Update content based on button ID
+            if (this.id === 'is-button-1') {
+                $('#is-exp').html(`<span><b>explore the subdomains of jerryly.top</b></span>
+        <span>not much to see here actually. Try visiting <a href="https://live.jerryly.top">live.jerryly.top</a></span>`);
+            } else if (this.id === 'is-button-2') {
+                $('#is-exp').html(`<span><b>check out the things I've been working on</b></span>
+        <span>also available at <a href="https://live.jerryly.top">live.jerryly.top</a></span>`);
+            } else if (this.id === 'is-button-3') {
+                $('#is-exp').html(`<span><b>find me at</b></span>
+        <span><a href="mailto:jerrysmailbox77@gmail.com">jerrysmailbox77@gmail.com</a> or call me at +14343104701</span>`);
+            } else if (this.id === 'is-button-4') {
+                $('#is-exp').html(`<span><b>about</b></span>
+        <span>Hi! ;-) I'm a first-year student at the University of Virginia majoring in Computer Science. I love computers, pop culture, and Taylor Swift.</span>`);
+            }
+        });
     </script>
 </body>
 

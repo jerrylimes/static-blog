@@ -290,8 +290,8 @@ body {
 
 /*
  * Author: Jerry Li
- * Date: May 9 2025
- * Version: 0.3
+ * Date: May 13 2025
+ * Version: 1.0
  */
 
 body {
@@ -302,264 +302,212 @@ svg {
     height: 1em;
 }
 
-#top-wrapper {
-    width: calc(100% - 24px);
-    height: 36px;
-    padding: 12px;
-    background-color: transparent;
-    position: relative;
-    transition: all 0.3s cubic-bezier(1, 0, 0, 1);
+#inscape-wrapper {
     position: fixed;
     top: 0;
     left: 0;
+    height: calc(100vh - 16px);
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+    margin-top: 8px;
     z-index: 2;
 }
 
-#top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#top-info {
-    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: transparent;
+#inscape {
+    width: 2px;
+    height: 100px;
+    border-radius: 4px;
+    background-color: hsl(210, 21%, 75%);
+    transition: all 0.3s cubic-bezier(0, 0.8, 0, 1);
     overflow: hidden;
-    position: absolute;
-    top: 60px;
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 10px;
-    transition: all 0.2s;
-    margin-right: 12px;
 }
 
-#top-info.active {
-    background-color: hsl(210, 21%, 98%);
-    color: #000;
+#inscape.hover {
+    width: 45px;
+    height: 205px;
+    border-radius: 15px;
+    background-color: hsl(210, 21%, 92%);
 }
 
-#top-info a {
-    color: unset;
+#inscape:hover {
+    width: calc(55px + 6em);
 }
 
-.top-info-heading {
-    display: block;
-    font-weight: bold;
-}
-
-#greet {
-    display: flex;
-    justify-content: start;
-    align-items: center;
+#inscape.expanded {
+    width: 205px;
+    border-radius: 15px;
     background-color: #eef1f4;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-#greeting {
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    color: rgba(0, 0, 0, 0.5);
-    margin-left: 36px;
-    height: 24px;
-    background-color: #eef1f4;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
+    height: 100%;
 }
 
 #home {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
     border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 5px;
+    opacity: 0.75;
 }
 
-#home:hover {
+#home:hover,
+.inscape-button:hover {
     background-color: hsl(210, 21%, 85%);
 }
 
 #logo {
-    width: 24px;
-    height: 24px;
-    opacity: 0.5;
-    background-image: url(../images/logo-button-light.svg);
+    width: 25px;
+    height: 25px;
+    background-image: url(https://raw.githubusercontent.com/jerrylovescheese/web-visitor/refs/heads/main/assets/images/logo-button-light.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
-#ext,
-#inquiry {
-    transform: translateY(0px);
-    scale: 100%;
-    transition: all 0.3s cubic-bezier(0.65, 0, 0, 1.25);
-    background-color: #eef1f4;
+.inscape-button {
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 10px;
+    font-family: 'Manrope', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+    opacity: 0.75;
 }
 
-#ext.hide,
-#inquiry.hide {
-    scale: 90%;
-    transform: translateY(-60px);
+.inscape-button-label {
+    width: 0em;
+    overflow: hidden;
+    font-size: 16px;
 }
 
-#ext,
-#top-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#inscape:hover #home,
+#inscape:hover #logo,
+#inscape.expanded #home,
+#inscape.expanded #logo {
+    width: 55.5px;
 }
 
-.top-button {
-    padding: 10px;
-    border-radius: 10px;
-    color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#inscape:hover #logo,
+#inscape.expanded #logo {
+    background-image: url(https://raw.githubusercontent.com/jerrylovescheese/web-visitor/refs/heads/main/assets/images/home-button-light.svg);
 }
 
-.top-button svg {
-    fill: rgba(0, 0, 0, 0.5);
+#inscape:hover .inscape-button {
+    width: calc(45px + 6em);
 }
 
-.top-button:hover {
-    background-color: hsl(210, 21%, 85%);
+#inscape.expanded .inscape-button {
+    width: 195px;
 }
 
-#inquiry {
-    width: calc(48px);
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+#inscape:hover .inscape-button-label,
+#inscape.expanded .inscape-button-label {
+    width: fit-content;
+    margin-right: 10px;
 }
 
-#top-card {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #eef1f4;
-    border-radius: 10px;
+.inscape-button-glyph {
+    margin-left: 6.5px;
 }
 
-#top-card svg {
-    width: 20px;
-    height: 20px;
-    opacity: 0.5;
+.inscape-button .material-symbols-outlined {
+    font-size: 22px;
+    font-variation-settings: 'FILL' 0, 'wght' 250, 'GRAD' 0, 'opsz' 48;
 }
 
-#top-card:hover {
-    background-color: hsl(210, 21%, 85%);
-}
-
-#clock {
-    color: rgba(0, 0, 0, 0.5);
+.inscape-button.highlight {
     font-weight: bold;
-    position: absolute;
-    margin-right: 36px;
-    background-color: #eef1f4;
-    height: 24px;
-    padding: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    background-color: hsl(210, 21%, 85%);
+}
+
+.inscape-button.highlight .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 450, 'GRAD' 0, 'opsz' 48;
+}
+
+#is-exp {
+    width: 183px;
+    height: 0;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    font-family: 'Manrope', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#is-exp.togglePadding {
+    height: fit-content;
+    border: 1px solid hsl(210, 21%, 80%);
+    padding: 5px;
+}
+
+#is-exp span {
+    display: block;
+    padding: 5px;
+}
+
+#is-exp a {
+    color: unset;
+    word-break: break-all;
+}
+
+.text-n {
+    font-family: 'Manrope', 'Source Han Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
-    #logo {
-        background-image: url(../images/logo-button-dark.svg);
+    #inscape {
+        background-color: hsl(200, 96%, 30%);
     }
 
-    #greeting,
-    #clock {
-        color: rgba(255, 255, 255, 0.5);
+    #inscape.hover,
+    .inscape-button.highlight {
+        background-color: hsl(200, 96%, 15%);
     }
 
-    .top-button svg,
-    #top-card svg {
-        fill: rgba(255, 255, 255, 0.5);
-    }
-
-    #top-info.active {
-        color: #fff;
-        background-color: rgb(1, 27, 40);
-    }
-
-    .top-button:hover,
-    #home:hover,
-    #top-card:hover {
-        background-color: rgb(1, 27, 40);
-    }
-
-    #ext,
-    #greet,
-    #clock,
-    #top-card,
-    #greeting,
-    #inquiry {
-        background-color: rgb(1, 32, 48);
-    }
-
-    #top-card {
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
+    #inscape.expanded {
+        background-color: #012030;
     }
 
     #backlight {
         background-color: #012030 !important;
     }
 
-    #copyright-info svg {
+    .inscape-button:hover,
+    #home:hover {
+        background-color: hsl(200, 96%, 30%);
+    }
+
+    #logo {
+        background-image: url(https://raw.githubusercontent.com/jerrylovescheese/web-visitor/refs/heads/main/assets/images/logo-button-dark.svg);
+    }
+
+    #inscape:hover #logo,
+    #inscape.expanded #logo {
+        background-image: url(https://raw.githubusercontent.com/jerrylovescheese/web-visitor/refs/heads/main/assets/images/home-button-dark.svg);
+    }
+
+    #is-exp.togglePadding {
+        border-color: hsl(200, 96%, 25%);
+    }
+
+    svg {
         fill: white;
     }
 }
 
-@media (max-width: 430px) {
-
-    #clock,
-    #greeting {
-        display: none;
-    }
-
-    #greet,
-    #inquiry {
-        border-radius: 10px !important;
-    }
-}
-
-#content-unit {
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 60px;
-}
-
-.text-n {
-    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 16px;
-    text-align: justify;
-}
-
 #backlight {
-    width: 100%;
-    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
+    width: 100vw;
+    height: 100vh;
     background-color: #eef1f4;
+    z-index: -1;
 }
 
 #copyright-info {
