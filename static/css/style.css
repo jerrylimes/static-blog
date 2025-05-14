@@ -373,7 +373,7 @@ svg {
 #logo {
     width: 25px;
     height: 25px;
-    background-image: url(../images/logo-button-light.svg);
+    background-image: url(../img/logo-button-light.svg);
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -408,7 +408,7 @@ svg {
 
 #inscape:hover #logo,
 #inscape.expanded #logo {
-    background-image: url(../images/home-button-light.svg);
+    background-image: url(../img/home-button-light.svg);
 }
 
 #inscape:hover .inscape-button {
@@ -498,12 +498,12 @@ svg {
     }
 
     #logo {
-        background-image: url(../images/logo-button-dark.svg);
+        background-image: url(../img/logo-button-dark.svg);
     }
 
     #inscape:hover #logo,
     #inscape.expanded #logo {
-        background-image: url(../images/home-button-dark.svg);
+        background-image: url(../img/home-button-dark.svg);
     }
 
     #is-exp.togglePadding {
