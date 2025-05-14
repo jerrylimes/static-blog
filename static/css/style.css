@@ -589,12 +589,16 @@ a {
     border: solid 1px #eee;
     border-radius: 5px;
     color: #000;
-    z-index: 30;
+    z-index: 1;
     transition: all 0.2s;
 }
 
 #back-to-top a {
     text-decoration: none;
+}
+
+#back-to-top .material-symbols-outlined {
+    font-size: 20px;
 }
 
 #back-button {
@@ -629,8 +633,8 @@ a {
 #bookmark {
     position: fixed;
     top: 130px;
-    left: calc(80% - 13px);
-    width: 20%;
+    left: calc(80% - 5px);
+    width: calc(20% - 10px);
 }
 
 nav {
@@ -653,8 +657,18 @@ nav>p {
     margin-right: 20px;
     padding-top: 15px;
     margin-bottom: 0;
-    font-size: 15px;
+    font-size: 14px;
     border-top: solid 1px #e0e0e04c;
+}
+
+nav>p>a {
+    display: flex;
+    align-items: center;
+}
+
+nav>p>a>span.material-symbols-outlined {
+    font-size: 20px;
+    font-weight: 700;
 }
 
 nav>ul {
@@ -770,10 +784,19 @@ footer {
 }
 
 .post-banner a {
-    font-size: 14px !important;
     text-decoration: none;
     padding-left: 20px;
     margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.post-banner a span {
+    font-size: 14px;
+}
+
+.post-banner a span.material-symbols-outlined {
+    font-size: 20px;
 }
 
 .post-banner #title {

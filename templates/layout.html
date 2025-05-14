@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pygments.css') }}">
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=alternate_email,arrow_forward,exit_to_app,gavel,info,person_add,science,web_stories" />
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=alternate_email,arrow_back_ios_new,arrow_forward,arrow_forward_ios,arrow_upward,exit_to_app,gavel,home,info,list,person_add,science,web_stories" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
@@ -49,13 +49,19 @@
     <div id="content-unit">
         <div id="bookmark">
             <div class="post-banner">
-                <a id="text-n" href="{{ url_for('index') }}"><i class="fa-solid fa-house"></i><span>&emsp;Back to
-                        Blog</span></a>
+                <a id="text-n" href="{{ url_for('index') }}">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>&emsp;Back to Blog</span>
+                </a>
                 <h1 id="title">{{ title }}</h1>
             </div>
             <nav tabindex="1">
-                <p id="list-of-contents"><a href="{{ url_for('post', post_name='content') }}"><i
-                            class="fa-solid fa-rectangle-list"></i><b>&emsp;Contents</b></a></p>
+                <p id="list-of-contents">
+                    <a href="{{ url_for('post', post_name='content') }}">
+                        <span class="material-symbols-outlined">list</span>
+                        <b>&emsp;Contents</b>
+                    </a>
+                </p>
                 <ul id="list">
                     <li><a href="{{ url_for('index') }}">Home</a></li>
                     <li><a href="{{ url_for('post', post_name=20240604) }}">Jun 4 2024</a></li>
@@ -71,19 +77,19 @@
         <div id="post-flip">
             {% if prev_page %}
             <a href="{{ prev_page }}">
-                <i class="fa-solid fa-circle-chevron-left"></i>
+                <span class="material-symbols-outlined">arrow_back_ios_new</span>
             </a>
             {% endif %}
             {% if next_page %}
             <a href="{{ next_page }}">
-                <i class="fa-solid fa-circle-chevron-right"></i>
+                <span class="material-symbols-outlined">arrow_forward_ios</span>
             </a>
             {% endif %}
         </div>
         <div id="back-to-top">
             <a href="#">
                 <div id="back-button">
-                    <i class="fas fa-arrow-up"></i>
+                    <span class="material-symbols-outlined">arrow_upward</span>
                 </div>
             </a>
         </div>
