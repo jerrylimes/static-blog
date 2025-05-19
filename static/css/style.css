@@ -534,6 +534,10 @@ body {
         margin-left: 0;
     }
 
+    #tools.expanded #input-field {
+        width: 160px !important;
+    }
+
     #tools.expanded #home,
     #tools.expanded #input-field,
     #tools.expanded #little-clock,
