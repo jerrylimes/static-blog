@@ -12,6 +12,7 @@ body {
     position: fixed;
     top: 8px;
     left: 8px;
+    right: 8px;
     overflow: hidden;
     z-index: 3;
 }
@@ -34,7 +35,7 @@ body {
 #logo {
     width: 20px;
     height: 20px;
-    background-image: url(../images/logo-button-light.svg);
+    background-image: url(../img/logo-button-light.svg);
     background-size: contain;
     margin-left: 5px;
     margin-right: 10px;
@@ -134,7 +135,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
     #logo {
-        background-image: url(../images/logo-button-dark.svg);
+        background-image: url(../img/logo-button-dark.svg);
     }
 
     #c-links a:hover {
