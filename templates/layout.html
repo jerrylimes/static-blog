@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
     <title>so I have this website...</title>
-    <script src="{{ url_for('static', filename='scripts/jquery-3.7.1.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=alternate_email,arrow_forward,chat,exit_to_app,favorite,gavel,history,home,info,lightbulb,live_tv,open_in_new,person_add,question_mark,science,web_stories" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,10 +26,18 @@
             <div id="blinds">
                 <div id="logo"></div>
                 <div id="links">
-                    <span class="material-symbols-outlined home-button">home</span>
-                    <span class="material-symbols-outlined history-button">history</span>
-                    <span class="material-symbols-outlined chat-button">chat</span>
-                    <span class="material-symbols-outlined web-stories-button">web_stories</span>
+                    <a href="https://jerryly.cn">
+                        <span class="material-symbols-outlined home-button">home</span>
+                    </a>
+                    <a href="https://old.jerryly.cn">
+                        <span class="material-symbols-outlined history-button">history</span>
+                    </a>
+                    <a href="https://blog.jerryly.cn">
+                        <span class="material-symbols-outlined chat-button">chat</span>
+                    </a>
+                    <a href="https://demo.jerryly.cn">
+                        <span class="material-symbols-outlined web-stories-button">web_stories</span>
+                    </a>
                 </div>
                 <div id="empty-element"></div>
             </div>
