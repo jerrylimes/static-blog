@@ -1,108 +1,201 @@
 /*
  * Author: Jerry Li
- * Version: 16.0
- * Date: Jul 11 2025
+ * Date: Jul 19 2025 
  */
 
-body {
-    margin: 0;
-}
-
-#common-header {
+#turnstile {
+    width: 60px;
+    height: 100%;
     position: fixed;
-    top: 8px;
-    left: 8px;
-    right: 8px;
+    top: 0;
+    left: 0;
     overflow: hidden;
-    z-index: 3;
-}
-
-#compound {
-    width: fit-content;
-    height: 30px;
-    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 2;
     display: flex;
-    justify-content: start;
-    align-items: center;
-    border-radius: 10px;
-    background-color: #f7f7f7;
-    padding: 4px;
+    transition: all 0.5s cubic-bezier(0, 1, 0, 1.03);
+    font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#compound a,
-#details a {
-    color: unset;
-    text-decoration: none;
+#blinds {
+    width: 50px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0, 1, 0, 1.03);
+}
+
+#turnstile.expanded {
+    width: 470px;
+    background-color: #ffffffcb;
+    backdrop-filter: blur(0.2em);
+}
+
+#turnstile.expanded #links {
+    opacity: 1;
+}
+
+#turnstile.expanded #logo {
+    opacity: 1;
+}
+
+#turnstile.expanded #blinds {
+    background-color: #fbfbfb;
+}
+
+#drawer {
+    margin-left: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fbfbfb;
+    transition: all 0.3s cubic-bezier(0, 0.6, 0, 1.03);
+}
+
+#text-display {
+    overflow: hidden;
+    width: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0, 0.6, 0, 1.03);
+}
+
+#text-display span {
+    display: block;
+    height: 24px;
+    padding: 4px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+#turnstile.expanded #drawer,
+#turnstile.expanded #text-display {
+    width: 120px;
+}
+
+#blinds:hover #logo,
+#blinds:hover #links {
+    opacity: 1;
 }
 
 #logo {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     background-image: url(../img/logo-button-light.svg);
+    background-repeat: no-repeat;
     background-size: contain;
-    margin-left: 5px;
-    margin-right: 10px;
+    opacity: 0.5;
+    margin-top: 14px;
+    transition: all 0.2s;
 }
 
-#c-links,
-#c-links a {
-    display: flex;
-    align-items: flex-end;
+#links {
+    width: 30px;
+    opacity: 0.5;
+    font-size: 22px;
+    transition: all 0.2s;
 }
 
-#c-links a {
-    border-radius: 6px;
-    padding: 5px;
-    padding-right: 8px;
-    font-size: 14px;
+#links .material-symbols-outlined {
+    font-weight: 250;
+    padding: 4px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
 }
 
-#c-links a:not(:last-child) {
-    margin-right: 5px;
+#empty-element-logo {
+    height: 36px;
 }
 
-#c-links a:hover {
-    background-color: #e5e5e5;
+#cloth {
+    width: 260px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    height: calc(100% - 10px);
 }
 
-#c-links a .material-symbols-outlined {
-    font-size: 18px;
-    font-weight: 300;
-    margin-right: 5px;
+#cloth a {
+    color: unset;
 }
 
-#home-button.active .material-symbols-outlined,
-#history-button.active .material-symbols-outlined,
-#chat-button.active .material-symbols-outlined,
-#web-stories-button.active .material-symbols-outlined {
-    font-weight: 500;
-}
-
-#home-button.active,
-#history-button.active,
-#chat-button.active,
-#web-stories-button.active {
+#welcome {
     font-weight: bold;
-    background-color: #f2f2f2;
+    font-size: 20px;
 }
 
-#details {
-    display: none;
+#cloth-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#content-unit {
+    margin-left: 50px;
+    margin-right: 10px;
     font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
+    transition: all 0.2s cubic-bezier(0, 0.6, 0, 1);
     overflow: hidden;
 }
 
-#details.display {
-    width: fit-content;
-    display: block;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 8px;
-    background-color: #fafafa;
+#content-unit.displaced {
+    margin-left: 180px;
+    margin-right: 0;
+    opacity: 0.5;
 }
 
-#details ul {
+#text-n {
+    font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media (max-width: 430px) {
+    #turnstile.expanded {
+        width: 300px;
+    }
+
+    #drawer {
+        display: none;
+    }
+
+    #cloth {
+        margin-left: 60px;
+    }
+
+    #content-unit {
+        margin-left: 50px;
+        margin-right: 10px;
+    }
+
+    #content-unit.displaced {
+        margin-left: 50px;
+    }
+}
+
+.home-button.highlighted,
+.history-button.highlighted,
+.chat-button.highlighted,
+.web-stories-button.highlighted {
+    font-weight: 400 !important;
+}
+
+.home-button.active,
+.history-button.active,
+.chat-button.active,
+.web-stories-button.active {
+    font-weight: 400;
+    background-color: #f3f3f3;
+}
+
+#cloth ul {
     display: grid;
     margin: 0;
     padding: 0;
@@ -110,29 +203,34 @@ body {
     overflow: hidden;
 }
 
-#details span {
+#cloth span {
     display: block;
     padding: 2px;
 }
 
-#details li {
+#cloth li {
     list-style: none;
     padding: 2px;
+    padding-left: 0;
     border-bottom: 1px solid transparent;
     display: grid;
     grid-template-columns: 2fr 1fr 1.5em;
     transition: all 0.2s;
 }
 
-#details li:hover {
+#cloth a {
+    text-decoration: none;
+}
+
+#cloth li:hover {
     font-weight: bold;
 }
 
-#details li:hover .material-symbols-outlined {
+#cloth li:hover .material-symbols-outlined {
     font-weight: bold;
 }
 
-#details .material-symbols-outlined {
+#cloth .material-symbols-outlined {
     transition: all 0.2s;
     font-size: 18px;
 }
@@ -142,47 +240,42 @@ body {
     font-size: 14px;
 }
 
-@media (max-width: 430px) {
-    .c-label {
-        display: none;
-    }
-
-    #c-links a .material-symbols-outlined {
-        font-size: 20px;
-        margin-right: 0;
-    }
-
-    #c-links a {
-        padding-right: 5px;
-    }
+.cloth-smaller {
+    font-size: 14px;
+    opacity: 0.5;
 }
 
 @media (prefers-color-scheme: dark) {
-    #compound {
-        background-color: #1b1b1b;
-    }
-
     #logo {
         background-image: url(../img/logo-button-dark.svg);
     }
 
-    #c-links a:hover {
-        background-color: #383838;
+    #blinds,
+    #drawer {
+        background-color: transparent;
     }
 
-    #details.display {
-        background-color: #202020;
+    #turnstile.expanded #blinds,
+    #turnstile.expanded #drawer {
+        background-color: #171717;
     }
 
-    #details li {
-        border-bottom-color: transparent;
+    #turnstile.expanded {
+        background-color: #1d1d1da4;
     }
 
-    #home-button.active,
-    #history-button.active,
-    #chat-button.active,
-    #web-stories-button.active {
-        background-color: #303030 !important;
+    .home-button.active,
+    .history-button.active,
+    .chat-button.active,
+    .web-stories-button.active {
+        background-color: #232323;
+    }
+}
+
+@media (max-width: 430px) {
+    #turnstile.expanded {
+        background-color: #171717d2;
+        backdrop-filter: blur(0.2em);
     }
 }
 
