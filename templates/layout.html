@@ -272,12 +272,14 @@
         $("#menu").click(() => {
             $("#menu").addClass("expanded");
             $("#content-unit").addClass("shifted");
+            $("#copyright-info").addClass("shifted");
         });
 
         $(document).click((e) => {
             if (!e.target.closest("#menu")) {
                 $("#menu").removeClass("expanded");
                 $("#content-unit").removeClass("shifted");
+                $("#copyright-info").removeClass("shifted");
             }
         });
 
