@@ -1,3 +1,9 @@
+"""
+    Author: Jerry Li
+    Date: 2025-08-31
+    Version: 0.1
+"""
+
 import os
 import json
 import markdown
@@ -23,7 +29,7 @@ def index():
 
 
 # Load metadata.json
-with open("metadata.json") as f:
+with open("metadata.json", "r", encoding="utf-8") as f:
     pages = json.load(f)
 
 # Create a dictionary mapping filenames to metadata
