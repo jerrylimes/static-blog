@@ -329,7 +329,7 @@ a {
     }
 }
 
-#bookmark {
+#bookmarker {
     position: fixed;
     top: 130px;
     right: 15px;
@@ -445,7 +445,7 @@ main {
 }
 
 main.active,
-#bookmark.active {
+#bookmarker.active {
     filter: blur(12px);
 }
 
@@ -612,7 +612,7 @@ footer {
         margin-top: 130px;
     }
 
-    #bookmark {
+    #bookmarker {
         position: fixed;
         left: 12px;
         right: 12px;
@@ -667,7 +667,7 @@ footer {
     }
 
     @media (prefers-color-scheme: dark) {
-        #bookmark {
+        #bookmarker {
             background-color: transparent;
             border-color: #333;
         }
