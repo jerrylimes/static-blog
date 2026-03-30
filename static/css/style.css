@@ -23,6 +23,13 @@
     src: url(https://media.jerryly.cn/ModernDOS8x16.ttf);
 }
 
+@font-face {
+    font-family: 'Doto';
+    font-weight: normal;
+    font-style: normal;
+    src: url(https://media.jerryly.cn/Doto-VariableFont_ROND%2Cwght.ttf);
+}
+
 /* general styles */
 
 .empty-box {
