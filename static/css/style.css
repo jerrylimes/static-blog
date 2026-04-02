@@ -185,6 +185,7 @@ footer {
     overflow-y: hidden;
     scrollbar-width: none;
 }
+
 @media (prefers-color-scheme: dark) {
     svg {
         fill: white;
