@@ -3,6 +3,17 @@
 {% block title %}Jerry's blog...{% endblock %}
 
 {% block content %}
+<h2 class="text-n">Jerry Li's writings and documentations</h2>
+<h3 class="text-n">李江源的博客和文字收集簿</h3>
+<p class="text-n">
+    Documentations
+</p>
+<ul id="list">
+    <li><a href="{{ url_for('post', post_name=20260515) }}">在我上学的时候选入部编版教材的鲁迅文集</a></li>
+</ul>
+<p class="text-n">
+    Blogs
+</p>
 <ul id="list">
     <li><a href="{{ url_for('index') }}">Home</a></li>
     <li><a href="{{ url_for('post', post_name=20240604) }}">Jun 4 2024</a></li>

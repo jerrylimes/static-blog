@@ -58,20 +58,21 @@ a {
 }
 
 #back-to-top {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    background-color: rgba(238, 238, 238, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    -moz-backdrop-filter: blur(12px);
+    bottom: 50px;
+    right: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
     border: solid 1px #eee;
-    border-radius: 5px;
+    border-radius: 40px;
     color: #000;
     z-index: 1;
     transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #back-to-top a {
@@ -83,31 +84,30 @@ a {
 }
 
 #back-button {
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.1s;
 }
 
-#back-to-top:hover #back-button,
+#back-button .material-symbols-outlined {
+    font-size: 24px;
+}
+
 #back-to-top:hover {
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
     background-color: rgba(192, 192, 192, 0.50);
 }
 
 @media (prefers-color-scheme: dark) {
     #back-to-top {
-        color: #fff !important;
+        color: #fff;
     }
 
     #back-to-top {
-        background-color: rgba(68, 68, 68, 0.85) !important;
-        border: solid 1px #444 !important;
+        background-color: rgba(68, 68, 68, 0.85);
+        border: solid 1px #444;
     }
 }
 
@@ -124,7 +124,10 @@ a {
     width: 40px;
     height: 40px;
     border: solid 1px #eee;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    -moz-backdrop-filter: blur(12px);
     font-size: 18px;
     border-radius: 20px;
     display: flex;
@@ -132,10 +135,11 @@ a {
     align-items: center;
     text-decoration: none;
     overflow: hidden;
+    transition: all 0.2s;
 }
 
 #post-flip a:hover {
-    background-color: #eee;
+    background-color: rgba(192, 192, 192, 0.50);
 }
 
 #post-flip a .material-symbols-outlined {
@@ -180,12 +184,8 @@ main.active,
     }
 
     #post-flip a {
-        border-color: #333;
-        background-color: black;
-    }
-
-    #post-flip a:hover {
-        background-color: #333;
+        background-color: rgba(68, 68, 68, 0.7);
+        border: solid 1px #444;
     }
 
     .codehilite {
