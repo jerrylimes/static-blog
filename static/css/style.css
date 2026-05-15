@@ -197,11 +197,7 @@ main.active,
     #content-unit {
         margin-top: 130px;
     }
-
-    main {
-        width: calc(100% - 10px);
-    }
-
+    
     #post-flip {
         top: 60px;
     }
