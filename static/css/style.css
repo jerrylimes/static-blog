@@ -202,3 +202,8 @@ main.active,
         top: 60px;
     }
 }
+
+.blog-img {
+    max-width: 100%;
+    border-radius: 10px;
+}
