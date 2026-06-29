@@ -32,7 +32,8 @@ def serve_post(post_name):
     html_path = os.path.join("posts", f"{post_name}.html")
     if os.path.exists(md_path):
         with open(md_path, encoding="utf8") as file:
-            content = markdown.markdown(file.read(), extensions=["codehilite", "fenced_code"])
+            content = markdown.markdown(file.read(), extensions=[
+                                        "codehilite", "fenced_code"])
         return render_template("post.html", content=content)
     elif os.path.exists(html_path):
         with open(html_path, encoding="utf8") as file:
