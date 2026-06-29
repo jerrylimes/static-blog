@@ -170,8 +170,7 @@ main.active,
     padding: 5px;
     padding-left: 15px;
     margin-right: 30px;
-    border: solid 1px #eee;
-    background-color: black;
+    background-color: #eee;
     margin-bottom: 5px;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -189,7 +188,7 @@ main.active,
     }
 
     .codehilite {
-        border-color: #333;
+        background-color: #333;
     }
 }
 
