@@ -1,0 +1,209 @@
+/*
+ * Author: Jerry Li
+ */
+
+@font-face {
+    font-family: 'Source Han Sans';
+    font-weight: normal;
+    font-style: normal;
+    src: url(../fonts/SourceHanSansCN-Regular-min.woff2);
+}
+
+@font-face {
+    font-family: 'Source Han Sans';
+    font-weight: bold;
+    font-style: normal;
+    src: url(../fonts/SourceHanSansCN-Bold-min.woff2);
+}
+
+@font-face {
+    font-family: 'Modern DOS 8x16';
+    font-weight: normal;
+    font-style: normal;
+    src: url(https://media.jerryly.cn/ModernDOS8x16.ttf);
+}
+
+@font-face {
+    font-family: 'Doto';
+    font-weight: normal;
+    font-style: normal;
+    src: url(https://media.jerryly.cn/Doto-VariableFont_ROND%2Cwght.ttf);
+}
+
+@font-face {
+    font-family: 'Playwrite Ireland';
+    font-weight: normal;
+    font-style: normal;
+    src: url(https://media.jerryly.cn/PlaywriteIE-VariableFont_wght.ttf);
+}
+
+/* general styles */
+
+.empty-box {
+    height: 100vh;
+}
+
+/* Blog-specific styles */
+
+#link-wrapper a:nth-child(4) {
+    font-weight: bold;
+}
+
+main {
+    font-family: 'Source Han Serif', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    color: unset;
+}
+
+#back-to-top {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+    border: solid 1px #eee;
+    border-radius: 40px;
+    color: #000;
+    z-index: 1;
+    transition: all 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#back-to-top a {
+    text-decoration: none;
+}
+
+#back-to-top .material-symbols-outlined {
+    font-size: 18px;
+}
+
+#back-button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.1s;
+}
+
+#back-button .material-symbols-outlined {
+    font-size: 24px;
+}
+
+#back-to-top:hover {
+    background-color: rgba(192, 192, 192, 0.50);
+}
+
+@media (prefers-color-scheme: dark) {
+    #back-to-top {
+        color: #fff;
+    }
+
+    #back-to-top {
+        background-color: rgba(68, 68, 68, 0.85);
+        border: solid 1px #444;
+    }
+}
+
+#post-flip {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#post-flip a {
+    width: 40px;
+    height: 40px;
+    border: solid 1px #eee;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    -moz-backdrop-filter: blur(12px);
+    font-size: 18px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+#post-flip a:hover {
+    background-color: rgba(192, 192, 192, 0.50);
+}
+
+#post-flip a .material-symbols-outlined {
+    font-size: 40px;
+}
+
+#post-flip a #post-flip-home {
+    font-size: 24px;
+}
+
+main {
+    width: 100%;
+    text-align: justify;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+main.active,
+#bookmarker.active {
+    filter: blur(12px);
+}
+
+.codehilite {
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 15px;
+    margin-right: 30px;
+    border: solid 1px #eee;
+    background-color: black;
+    margin-bottom: 5px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    svg {
+        fill: white;
+    }
+
+    #post-flip a {
+        background-color: rgba(68, 68, 68, 0.7);
+        border: solid 1px #444;
+    }
+
+    .codehilite {
+        border-color: #333;
+    }
+}
+
+@media (max-width: 768px) {
+    #content-unit {
+        margin-top: 130px;
+    }
+
+    #post-flip {
+        top: 60px;
+    }
+}
+
+.blog-img {
+    max-width: 100%;
+    border-radius: 10px;
+}

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Dynamic Page{% endblock %}
+
+{% block content %}
+<div class="content-unit">
+    <div id="post-flip">
+        <a href="./">
+            <span class="material-symbols-outlined" id="post-flip-home">home</span>
+        </a>
+        {% if prev_page %}
+        <a href="{{ prev_page }}">
+            <span class="material-symbols-outlined">arrow_left</span>
+        </a>
+        {% endif %}
+        {% if next_page %}
+        <a href="{{ next_page }}">
+            <span class="material-symbols-outlined">arrow_right</span>
+        </a>
+        {% endif %}
+    </div>
+    <div id="back-to-top">
+        <a href="#">
+            <div id="back-button">
+                <span class="material-symbols-outlined">arrow_upward</span>
+            </div>
+        </a>
+    </div>
+    <main>
+        {{ content|safe }}
+    </main>
+</div>
+{% endblock %}
